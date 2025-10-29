@@ -2,6 +2,65 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+/* Nick a Deal Brand Color System */
+:root {
+  /* Base */
+  --background: #FFFFFF;
+  --foreground: #0A0A0B;
+
+  /* Brand Colors */
+  --brand-50: #F7E8F3;
+  --brand-100: #EFD1E9;
+  --brand-500: #B4228E; /* Primary Magenta */
+  --brand-700: #572383; /* Deep Purple */
+
+  /* Accent Colors */
+  --accent-50: #E9F7FE;
+  --accent-100: #D2EFFC;
+  --accent-500: #2BB8EB; /* Cyan */
+  --accent-700: #0B82CB; /* Royal Blue */
+
+  /* Neutrals */
+  --cloud-100: #E6E7F4;
+  --lavender-200: #B393C9;
+  --muted: #6B7280; /* Text secondary */
+
+  /* UI Tokens */
+  --card: #FFFFFF;
+  --card-foreground: #0A0A0B;
+  --border: rgba(10, 10, 11, 0.08);
+  --ring: var(--accent-500);
+
+  /* Shadcn/UI Tokens */
+  --primary: var(--brand-500);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--accent-500);
+  --secondary-foreground: #0A0A0B;
+  --muted-foreground: var(--muted);
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+
+  /* Effects */
+  --glow-magenta: 0 8px 24px rgba(180, 34, 142, 0.28);
+  --glow-cyan: 0 8px 24px rgba(43, 184, 235, 0.28);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --background: #0A0A0B;
+  --foreground: #F8FAFC;
+
+  --card: #101114;
+  --card-foreground: #F8FAFC;
+  --border: rgba(255, 255, 255, 0.08);
+
+  /* Increase saturation a touch in dark */
+  --primary: #C02A97;
+  --secondary: #33BFF0;
+
+  --ring: var(--secondary);
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {

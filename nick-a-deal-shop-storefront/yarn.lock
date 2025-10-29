@@ -4463,7 +4463,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clsx@npm:^2.0.0":
+"clsx@npm:^2.0.0, clsx@npm:^2.1.1":
   version: 2.1.1
   resolution: "clsx@npm:2.1.1"
   checksum: acd3e1ab9d8a433ecb3cc2f6a05ab95fe50b4a3cfc5ba47abb6cbf3754585fcb87b84e90c822a1f256c4198e3b41c7f6c391577ffc8678ad587fc0976b24fd57
@@ -6412,10 +6412,12 @@ __metadata:
     ansi-colors: ^4.1.3
     autoprefixer: ^10.4.2
     babel-loader: ^8.2.3
+    clsx: ^2.1.1
     eslint: 8.10.0
     eslint-config-next: 15.0.3
     lodash: ^4.17.21
     next: ^15.3.1
+    next-themes: ^0.4.4
     pg: ^8.11.3
     postcss: ^8.4.8
     prettier: ^2.8.8
@@ -6424,6 +6426,7 @@ __metadata:
     react-country-flag: ^3.1.0
     react-dom: 19.0.0-rc-66855b96-20241106
     server-only: ^0.0.1
+    tailwind-merge: ^2.5.5
     tailwindcss: ^3.0.23
     tailwindcss-radix: ^2.8.0
     typescript: ^5.3.2
@@ -6636,6 +6639,16 @@ __metadata:
   version: 2.6.2
   resolution: "neo-async@npm:2.6.2"
   checksum: deac9f8d00eda7b2e5cd1b2549e26e10a0faa70adaa6fdadca701cc55f49ee9018e427f424bac0c790b7c7e2d3068db97f3093f1093975f2acb8f8818b936ed9
+  languageName: node
+  linkType: hard
+
+"next-themes@npm:^0.4.4":
+  version: 0.4.6
+  resolution: "next-themes@npm:0.4.6"
+  peerDependencies:
+    react: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
+    react-dom: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
+  checksum: 295256ee5689629e6578ff4f10f163257172085cac0a250f5f81eae5791fde984a0398be09b959a90c12cf72cf95e82ae11fad6fe13edc4e2d2a6ec2734be0cd
   languageName: node
   linkType: hard
 
@@ -8247,6 +8260,13 @@ __metadata:
   version: 2.5.5
   resolution: "tailwind-merge@npm:2.5.5"
   checksum: c835c763642988aa7185f242f93a61a6ce45d577edbefa4016727e664d9e130fa153b0d3a8bbcfcefd1de6a204e9d302971826d4d1068b6fd92ef66a27f35351
+  languageName: node
+  linkType: hard
+
+"tailwind-merge@npm:^2.5.5":
+  version: 2.6.0
+  resolution: "tailwind-merge@npm:2.6.0"
+  checksum: 18976c4096920bc6125f1dc837479805de996d86bcc636f98436f65c297003bde89ffe51dfd325b7c97fc71b1dbba8505459dd96010e7b181badd29aea996440
   languageName: node
   linkType: hard
 

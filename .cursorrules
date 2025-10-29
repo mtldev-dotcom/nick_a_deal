@@ -1,0 +1,45 @@
+# Cursor Rules - Nick a Deal Project
+
+## Project Structure
+
+### Backend (MedusaJS 2.0+)
+- **Location**: `nick-a-deal-shop/`
+- **Port**: 9000 (default)
+- **Type**: MedusaJS backend server
+- **Config**: `nick-a-deal-shop/medusa-config.ts`
+- **Entry**: `nick-a-deal-shop/medusa-config.ts`
+
+### Storefront (Next.js 15)
+- **Location**: `nick-a-deal-shop-storefront/`
+- **Port**: 8000 (default)
+- **Type**: Next.js 15 storefront using App Router
+- **Config**: `nick-a-deal-shop-storefront/next.config.js`
+- **Styles**: `nick-a-deal-shop-storefront/src/styles/globals.css`
+- **Tailwind**: `nick-a-deal-shop-storefront/tailwind.config.js`
+
+## Important Rules
+
+1. **NEVER use git commands** - Do not run `git add`, `git commit`, `git push`, or any git operations
+2. **NEVER run dev commands** - Do not run `yarn dev`, `npm run dev`, `yarn start`, or any server startup commands. The user handles all dev server operations.
+3. **Always reference paths relative to workspace root** - Use paths like `nick-a-deal-shop-storefront/src/...` not relative paths like `../storefront/...`
+
+## Path Conventions
+
+- Backend code: `nick-a-deal-shop/src/`
+- Storefront code: `nick-a-deal-shop-storefront/src/`
+- Documentation: `docs/`
+- Brand assets: `docs/brand/` and `nick-a-deal-shop-storefront/public/`
+
+## Technology Stack
+
+- **Backend**: MedusaJS 2.11.1, TypeScript, Node.js >=20
+- **Storefront**: Next.js 15, React 19, TypeScript, Tailwind CSS, @medusajs/ui, Shadcn UI
+- **Package Manager**: Yarn (yarn@3.2.3 for storefront, yarn@4.3.0 for backend)
+
+## Brand Design System
+
+- Brand colors defined in CSS variables in `globals.css`
+- Design guide: `docs/brand/nick-deal-storefront-design.md`
+- Use CSS variables (`var(--brand-500)`) not hardcoded hex values
+- Support light/dark themes via `data-theme` attribute
+

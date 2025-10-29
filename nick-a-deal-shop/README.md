@@ -1,3 +1,5 @@
+# Nick a Deal - Backend
+
 <p align="center">
   <a href="https://www.medusajs.com">
   <picture>
@@ -7,8 +9,9 @@
     </picture>
   </a>
 </p>
+
 <h1 align="center">
-  Medusa
+  Nick a Deal - MedusaJS Backend
 </h1>
 
 <h4 align="center">
@@ -17,46 +20,128 @@
 </h4>
 
 <p align="center">
-  Building blocks for digital commerce
+  Commerce backend for Nick a Deal storefront. Built with MedusaJS 2.0+.
 </p>
-<p align="center">
-  <a href="https://github.com/medusajs/medusa/blob/master/CONTRIBUTING.md">
-    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs welcome!" />
-  </a>
-    <a href="https://www.producthunt.com/posts/medusa"><img src="https://img.shields.io/badge/Product%20Hunt-%231%20Product%20of%20the%20Day-%23DA552E" alt="Product Hunt"></a>
-  <a href="https://discord.gg/xpCwq3Kfn8">
-    <img src="https://img.shields.io/badge/chat-on%20discord-7289DA.svg" alt="Discord Chat" />
-  </a>
-  <a href="https://twitter.com/intent/follow?screen_name=medusajs">
-    <img src="https://img.shields.io/twitter/follow/medusajs.svg?label=Follow%20@medusajs" alt="Follow @medusajs" />
-  </a>
-</p>
+
+## About
+
+This is the backend server for **Nick a Deal**, a curated deal shop. It provides the commerce API, product management, order processing, and payment handling.
+
+**Frontend**: See `../nick-a-deal-shop-storefront/` for the Next.js storefront.
 
 ## Compatibility
 
-This starter is compatible with versions >= 2 of `@medusajs/medusa`. 
+This backend is compatible with versions >= 2 of `@medusajs/medusa` (currently using 2.11.1).
 
 ## Getting Started
 
-Visit the [Quickstart Guide](https://docs.medusajs.com/learn/installation) to set up a server.
+### Prerequisites
 
-Visit the [Docs](https://docs.medusajs.com/learn/installation#get-started) to learn more about our system requirements.
+- Node.js >= 20
+- PostgreSQL (or SQLite for development)
+- Yarn (yarn@4.3.0)
+
+### Installation
+
+1. **Install dependencies:**
+   ```bash
+   yarn install
+   ```
+
+2. **Set up environment variables:**
+   
+   Create a `.env` file in this directory:
+   ```env
+   DATABASE_URL=postgresql://user:password@localhost:5432/nickadeal
+   STORE_CORS=http://localhost:8000
+   ADMIN_CORS=http://localhost:7001
+   AUTH_CORS=http://localhost:8000
+   JWT_SECRET=your-jwt-secret-here
+   COOKIE_SECRET=your-cookie-secret-here
+   ```
+
+3. **Run database migrations:**
+   ```bash
+   yarn medusa migrations run
+   ```
+
+4. **Seed the database (optional):**
+   ```bash
+   yarn seed
+   ```
+
+5. **Start the development server:**
+   ```bash
+   yarn dev
+   ```
+
+The backend will run on `http://localhost:9000`.
+
+For more detailed setup instructions, see the [Development Setup Guide](../docs/development-setup.md).
+
+## Project Structure
+
+```
+nick-a-deal-shop/
+├── src/
+│   ├── admin/          # Admin customization
+│   ├── api/            # API routes (admin & store)
+│   ├── jobs/           # Background jobs
+│   ├── modules/        # Custom modules
+│   ├── scripts/        # Utility scripts (seed.ts)
+│   ├── subscribers/    # Event subscribers
+│   └── workflows/      # Workflow definitions
+├── medusa-config.ts    # Main configuration
+└── package.json
+```
+
+## Scripts
+
+- `yarn dev` - Start development server
+- `yarn build` - Build for production
+- `yarn start` - Start production server
+- `yarn seed` - Seed database with sample data
+- `yarn test:unit` - Run unit tests
+- `yarn test:integration:http` - Run HTTP integration tests
+
+## Configuration
+
+Main configuration is in `medusa-config.ts`. Key settings:
+
+- Database connection
+- CORS origins (storefront, admin, auth)
+- JWT and cookie secrets
+- Module configurations
+
+## API Endpoints
+
+- **Store API**: `http://localhost:9000/store/`
+- **Admin API**: `http://localhost:9000/admin/`
+- **Health Check**: `http://localhost:9000/health`
+
+## Customization
+
+Custom API routes can be added in:
+- `src/api/store/custom/route.ts` - Store endpoints
+- `src/api/admin/custom/route.ts` - Admin endpoints
+
+Custom modules, workflows, and subscribers can be added in their respective directories.
 
 ## What is Medusa
 
-Medusa is a set of commerce modules and tools that allow you to build rich, reliable, and performant commerce applications without reinventing core commerce logic. The modules can be customized and used to build advanced ecommerce stores, marketplaces, or any product that needs foundational commerce primitives. All modules are open-source and freely available on npm.
+Medusa is a set of commerce modules and tools that allow you to build rich, reliable, and performant commerce applications without reinventing core commerce logic. The modules can be customized and used to build advanced ecommerce stores, marketplaces, or any product that needs foundational commerce primitives.
 
-Learn more about [Medusa’s architecture](https://docs.medusajs.com/learn/introduction/architecture) and [commerce modules](https://docs.medusajs.com/learn/fundamentals/modules/commerce-modules) in the Docs.
+Learn more about [Medusa's architecture](https://docs.medusajs.com/learn/introduction/architecture) and [commerce modules](https://docs.medusajs.com/learn/fundamentals/modules/commerce-modules) in the Docs.
 
-## Community & Contributions
+## Documentation
 
-The community and core team are available in [GitHub Discussions](https://github.com/medusajs/medusa/discussions), where you can ask for support, discuss roadmap, and share ideas.
+- [Root Project README](../README.md)
+- [Development Setup](../docs/development-setup.md)
+- [Project Structure](../docs/project-structure.md)
+- [MedusaJS Docs](https://docs.medusajs.com)
 
-Join our [Discord server](https://discord.com/invite/medusajs) to meet other community members.
+## Community & Support
 
-## Other channels
-
+- [GitHub Discussions](https://github.com/medusajs/medusa/discussions)
+- [Discord Server](https://discord.com/invite/medusajs)
 - [GitHub Issues](https://github.com/medusajs/medusa/issues)
-- [Twitter](https://twitter.com/medusajs)
-- [LinkedIn](https://www.linkedin.com/company/medusajs)
-- [Medusa Blog](https://medusajs.com/blog/)

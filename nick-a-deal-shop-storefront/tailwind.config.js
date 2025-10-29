@@ -21,6 +21,50 @@ module.exports = {
         padding: "padding-top padding-right padding-bottom padding-left",
       },
       colors: {
+        // Brand Pharmacies
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        primary: {
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
+        },
+        secondary: {
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
+        },
+        card: {
+          DEFAULT: "var(--card)",
+          foreground: "var(--card-foreground)",
+        },
+        border: "var(--border)",
+        muted: {
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
+        },
+        destructive: {
+          DEFAULT: "var(--destructive)",
+          foreground: "var(--destructive-foreground)",
+        },
+        // Brand color tokens
+        brand: {
+          50: "var(--brand-50)",
+          100: "var(--brand-100)",
+          500: "var(--brand-500)",
+          700: "var(--brand-700)",
+        },
+        accent: {
+          50: "var(--accent-50)",
+          100: "var(--accent-100)",
+          500: "var(--accent-500)",
+          700: "var(--accent-700)",
+        },
+        cloud: {
+          100: "var(--cloud-100)",
+        },
+        lavender: {
+          200: "var(--lavender-200)",
+        },
+        // Medusa UI greys (keep for compatibility)
         grey: {
           0: "#FFFFFF",
           5: "#F9FAFB",
@@ -34,6 +78,10 @@ module.exports = {
           80: "#1F2937",
           90: "#111827",
         },
+      },
+      boxShadow: {
+        "glow-magenta": "var(--glow-magenta)",
+        "glow-cyan": "var(--glow-cyan)",
       },
       borderRadius: {
         none: "0px",
@@ -140,6 +188,10 @@ module.exports = {
           "0%": { transform: "translateY(-100%)" },
           "100%": { transform: "translateY(0)" },
         },
+        "arrow-move": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(4px)" },
+        },
       },
       animation: {
         ring: "ring 2.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
@@ -155,6 +207,7 @@ module.exports = {
         enter: "enter 200ms ease-out",
         "slide-in": "slide-in 1.2s cubic-bezier(.41,.73,.51,1.02)",
         leave: "leave 150ms ease-in forwards",
+        "arrow-move": "arrow-move 120ms ease-out",
       },
     },
   },
