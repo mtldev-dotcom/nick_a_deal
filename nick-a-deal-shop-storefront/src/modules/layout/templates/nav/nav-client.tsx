@@ -1,20 +1,21 @@
 "use client"
 
-import { Suspense, useState } from "react"
-import { StoreRegion } from "@medusajs/types"
+import { useState } from "react"
+import { StoreRegion, HttpTypes } from "@medusajs/types"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Logo from "@modules/common/components/logo"
-import CartButton from "@modules/layout/components/cart-button"
+import CartDropdown from "@modules/layout/components/cart-dropdown"
 import DesktopNav from "@modules/layout/components/desktop-nav"
 import MobileMenu from "@modules/layout/components/mobile-menu"
 import ThemeToggle from "@modules/layout/components/theme-toggle"
 
 type NavClientProps = {
   regions: StoreRegion[] | null
+  cart: HttpTypes.StoreCart | null
 }
 
-export default function NavClient({ regions }: NavClientProps) {
+export default function NavClient({ regions, cart }: NavClientProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -85,19 +86,7 @@ export default function NavClient({ regions }: NavClientProps) {
               </div>
 
               {/* Cart Button */}
-              <Suspense
-                fallback={
-                  <LocalizedClientLink
-                    className="p-2 rounded-lg hover:bg-background/50 transition-colors flex items-center gap-2"
-                    href="/cart"
-                    data-testid="nav-cart-link"
-                  >
-                    <span className="text-sm">Cart</span>
-                  </LocalizedClientLink>
-                }
-              >
-                <CartButton />
-              </Suspense>
+              <CartDropdown cart={cart} />
             </div>
           </nav>
         </header>
