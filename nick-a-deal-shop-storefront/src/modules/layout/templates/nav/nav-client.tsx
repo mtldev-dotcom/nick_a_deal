@@ -23,7 +23,7 @@ export default function NavClient({ regions, cart }: NavClientProps) {
       <div className="sticky top-0 inset-x-0 z-50 group">
         <header className="relative h-16 mx-auto border-b duration-200 bg-background/95 backdrop-blur-md border-border shadow-sm">
           <nav className="content-container text-foreground flex items-center justify-between w-full h-full gap-4">
-            {/* Left: Mobile Menu Button / Desktop Nav */}
+            {/* Left: Logo / Mobile Menu Button */}
             <div className="flex items-center gap-x-4">
               {/* Mobile Menu Button */}
               <button
@@ -48,13 +48,13 @@ export default function NavClient({ regions, cart }: NavClientProps) {
                 </svg>
               </button>
 
-              {/* Desktop Navigation */}
-              <DesktopNav />
+              {/* Logo */}
+              <Logo />
             </div>
 
-            {/* Center: Logo */}
-            <div className="flex items-center h-full justify-center flex-1 lg:flex-initial">
-              <Logo />
+            {/* Center: Desktop Navigation */}
+            <div className="hidden lg:flex items-center justify-center flex-1">
+              <DesktopNav />
             </div>
 
             {/* Right: Search, Theme Toggle, Account, Cart */}

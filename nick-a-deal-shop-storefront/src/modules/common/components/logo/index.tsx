@@ -21,8 +21,6 @@ export default function Logo() {
           priority
           className="object-contain w-full h-full"
         />
-        {/* Gradient overlay on hover using arrow gradient */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-150 ease-out bg-gradient-to-br from-[#2BB8EB] to-[#0B82CB] rounded pointer-events-none" />
       </div>
     </LocalizedClientLink>
   )
