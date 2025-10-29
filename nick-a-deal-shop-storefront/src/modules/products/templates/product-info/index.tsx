@@ -13,52 +13,52 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
         {product.collection && (
           <LocalizedClientLink
             href={`/collections/${product.collection.handle}`}
-            className="text-medium text-ui-fg-muted hover:text-ui-fg-subtle"
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
           >
             {product.collection.title}
           </LocalizedClientLink>
         )}
         <Heading
           level="h2"
-          className="text-3xl leading-10 text-ui-fg-base"
+          className="text-3xl md:text-4xl leading-tight font-semibold text-foreground"
           data-testid="product-title"
         >
           {product.title}
         </Heading>
 
         <Text
-          className="text-medium text-ui-fg-subtle whitespace-pre-line"
+          className="text-base md:text-lg text-muted-foreground whitespace-pre-line leading-relaxed"
           data-testid="product-description"
         >
           {product.description}
         </Text>
 
         {/* Why Nick picked this - Trust Block */}
-        <div className="mt-6 p-4 rounded-2xl bg-[color:var(--cloud-100)] dark:bg-[#1A1B20] border border-border">
-          <h3 className="text-base font-semibold text-foreground mb-3">
+        <div className="mt-6 p-5 rounded-2xl bg-card border border-border shadow-sm">
+          <h3 className="text-base font-semibold text-foreground mb-4">
             Why Nick picked this
           </h3>
-          <ul className="flex flex-col gap-2 text-sm text-foreground/80">
-            <li className="flex items-start gap-2">
-              <span className="text-[color:var(--accent-500)] font-bold">✓</span>
-              <span>Best price today vs market average</span>
+          <ul className="flex flex-col gap-3 text-sm">
+            <li className="flex items-start gap-3">
+              <span className="text-accent-500 font-bold text-base leading-none mt-0.5">✓</span>
+              <span className="text-foreground">Best price today vs market average</span>
             </li>
-            <li className="flex items-start gap-2">
-              <span className="text-[color:var(--accent-500)] font-bold">✓</span>
-              <span>Verified quality from trusted supplier</span>
+            <li className="flex items-start gap-3">
+              <span className="text-accent-500 font-bold text-base leading-none mt-0.5">✓</span>
+              <span className="text-foreground">Verified quality from trusted supplier</span>
             </li>
-            <li className="flex items-start gap-2">
-              <span className="text-[color:var(--accent-500)] font-bold">✓</span>
-              <span>Great value for the money</span>
+            <li className="flex items-start gap-3">
+              <span className="text-accent-500 font-bold text-base leading-none mt-0.5">✓</span>
+              <span className="text-foreground">Great value for the money</span>
             </li>
           </ul>
         </div>
 
         {/* Best Price Note */}
-        <div className="mt-4 p-3 rounded-lg bg-[color:var(--accent-50)] dark:bg-[#0B1A2A] border border-[color:var(--accent-500)]/20">
-          <p className="text-xs text-foreground/70">
-            <strong className="text-foreground">Is this the best price?</strong>{" "}
-            We track prices daily. This is the best deal we've found today. Prices change frequently, so grab it while you can!
+        <div className="mt-4 p-4 rounded-lg bg-card border border-accent-500/40 dark:border-accent-500/20">
+          <p className="text-sm text-foreground leading-relaxed">
+            <strong className="text-foreground font-semibold">Is this the best price?</strong>{" "}
+            We track prices daily. This is the best deal we&apos;ve found today. Prices change frequently, so grab it while you can!
           </p>
         </div>
       </div>

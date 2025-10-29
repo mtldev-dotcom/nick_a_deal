@@ -3,7 +3,7 @@
 import { addToCart } from "@lib/data/cart"
 import { useIntersection } from "@lib/hooks/use-in-view"
 import { HttpTypes } from "@medusajs/types"
-import { Button } from "@medusajs/ui"
+import { Button, clx } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
 import OptionSelect from "@modules/products/components/product-actions/option-select"
 import { isEqual } from "lodash"
@@ -150,7 +150,17 @@ export default function ProductActions({
             !isValidVariant
           }
           variant="primary"
-          className="w-full h-10 bg-primary text-primary-foreground shadow-glow-magenta hover:opacity-95"
+          className={clx(
+            "w-full h-12 text-base font-medium transition-all duration-150",
+            {
+              // Active state
+              "bg-primary text-primary-foreground shadow-glow-magenta hover:opacity-95 hover:shadow-glow-cyan":
+                inStock && selectedVariant && isValidVariant && !disabled && !isAdding,
+              // Disabled/Out of stock state
+              "bg-muted text-muted-foreground cursor-not-allowed opacity-60":
+                !inStock || !selectedVariant || !isValidVariant || disabled,
+            }
+          )}
           isLoading={isAdding}
           data-testid="add-product-button"
         >
