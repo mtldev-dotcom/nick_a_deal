@@ -118,6 +118,11 @@
 }
 
 @layer components {
+  /* Hero background dark mode fix via attribute selector on <html data-theme="dark"> */
+  .hero-dark-overlay { display: none; }
+  [data-theme="dark"] .hero-bg { background-color: #050507 !important; }
+  [data-theme="dark"] .hero-dark-overlay { display: block; }
+
   .content-container {
     @apply max-w-[1440px] w-full mx-auto px-6;
   }
