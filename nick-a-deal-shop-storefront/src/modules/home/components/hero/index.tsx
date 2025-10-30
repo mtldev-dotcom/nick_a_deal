@@ -26,12 +26,12 @@ const Hero = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
           <LocalizedClientLink href="/store">
-            <button className="inline-flex items-center gap-2 rounded-xl px-6 py-3 bg-primary text-primary-foreground shadow-glow-magenta hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ring)] transition-all duration-150 font-medium">
+            <button className="btn-animated-border btn-animated-border-primary inline-flex items-center gap-2 rounded-xl px-6 py-3 bg-foreground dark:bg-[#0A0A0B] text-background dark:text-foreground shadow-lg hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ring)] transition-all duration-150 font-medium">
               Shop Today's Picks
             </button>
           </LocalizedClientLink>
           <LocalizedClientLink href="/about">
-            <button className="inline-flex items-center gap-2 rounded-xl px-6 py-3 bg-secondary text-secondary-foreground shadow-glow-cyan hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ring)] transition-all duration-150 font-medium">
+            <button className="btn-animated-border btn-animated-border-secondary inline-flex items-center gap-2 rounded-xl px-6 py-3 bg-foreground dark:bg-[#0A0A0B] text-background dark:text-foreground shadow-lg hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ring)] transition-all duration-150 font-medium">
               How We Pick Deals
             </button>
           </LocalizedClientLink>

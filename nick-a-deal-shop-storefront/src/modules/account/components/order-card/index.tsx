@@ -75,7 +75,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
       </div>
       <div className="flex justify-end mt-4">
         <LocalizedClientLink href={`/account/orders/details/${order.id}`}>
-          <Button data-testid="order-details-link" variant="secondary" className="bg-secondary text-secondary-foreground hover:opacity-90">
+          <Button data-testid="order-details-link" variant="secondary" className="btn-animated-border btn-animated-border-secondary bg-secondary text-secondary-foreground hover:opacity-90">
             See details
           </Button>
         </LocalizedClientLink>

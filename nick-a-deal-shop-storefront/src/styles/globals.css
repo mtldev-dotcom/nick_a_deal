@@ -43,6 +43,15 @@
   /* Effects */
   --glow-magenta: 0 8px 24px rgba(180, 34, 142, 0.28);
   --glow-cyan: 0 8px 24px rgba(43, 184, 235, 0.28);
+  
+  /* Animated border gradient colors */
+  --border-gradient-start: var(--brand-500);
+  --border-gradient-end: var(--accent-500);
+}
+
+[data-theme="dark"] {
+  --border-gradient-start: var(--primary);
+  --border-gradient-end: var(--secondary);
 }
 
 /* Dark Theme */
@@ -168,4 +177,97 @@
   .text-3xl-semi {
     @apply text-[32px] leading-[44px] font-semibold;
   }
+
+  /* Animated Border Button Styles */
+  .btn-animated-border {
+    position: relative;
+    isolation: isolate;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .btn-animated-border::before {
+    content: '';
+    position: absolute;
+    inset: 0; /* hug the button */
+    z-index: 0;
+    border-radius: inherit;
+    padding: 3px; /* border thickness - increased for better visibility */
+    background: linear-gradient(
+      90deg,
+      var(--brand-500),
+      var(--brand-700),
+      var(--accent-500),
+      var(--accent-700),
+      var(--brand-500)
+    );
+    background-size: 300% 100%;
+    animation: btn-border-move 2.5s linear infinite;
+    /* Create an outer ring by punching out the middle */
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask-composite: exclude;
+    pointer-events: none;
+    will-change: background-position;
+  }
+
+  .btn-animated-border:hover::before {
+    animation-duration: 1.5s;
+  }
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .btn-animated-border::before {
+      animation: none;
+    }
+  }
+
+  /* Primary variant - magenta to cyan */
+  .btn-animated-border-primary::before {
+    background: linear-gradient(
+      90deg,
+      var(--brand-500),
+      var(--brand-700),
+      var(--accent-500),
+      var(--accent-700),
+      var(--brand-500)
+    );
+  }
+
+  /* Secondary variant - cyan to magenta */
+  .btn-animated-border-secondary::before {
+    background: linear-gradient(
+      90deg,
+      var(--accent-500),
+      var(--accent-700),
+      var(--brand-500),
+      var(--brand-700),
+      var(--accent-500)
+    );
+  }
+
+  /* Disabled state - no animation */
+  .btn-animated-border:disabled::before,
+  .btn-animated-border[disabled]::before {
+    animation: none;
+    opacity: 0.6;
+  }
+
+  /* Auto-apply animated border to buttons with primary/secondary backgrounds */
+  button.bg-primary,
+  button[class*="bg-primary"]:not([class*="bg-primary-foreground"]) {
+    @apply btn-animated-border btn-animated-border-primary;
+  }
+
+  button.bg-secondary,
+  button[class*="bg-secondary"]:not([class*="bg-secondary-foreground"]) {
+    @apply btn-animated-border btn-animated-border-secondary;
+  }
+}
+
+/* Keyframe animation for sliding border */
+@keyframes btn-border-move {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 300% 0%; }
 }

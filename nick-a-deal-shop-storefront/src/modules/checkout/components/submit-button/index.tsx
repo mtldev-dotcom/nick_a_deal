@@ -17,10 +17,13 @@ export function SubmitButton({
 }) {
   const { pending } = useFormStatus()
 
+  const borderClass = variant === "primary" ? "btn-animated-border-primary" : 
+                     variant === "secondary" ? "btn-animated-border-secondary" : "";
+  
   return (
     <Button
       size="large"
-      className={className}
+      className={`${borderClass ? `btn-animated-border ${borderClass}` : ""} ${className || ""}`}
       type="submit"
       isLoading={pending}
       variant={variant || "primary"}

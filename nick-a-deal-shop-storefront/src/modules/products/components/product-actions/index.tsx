@@ -152,9 +152,10 @@ export default function ProductActions({
           variant="primary"
           className={clx(
             "w-full h-12 text-base font-medium transition-all duration-150",
+            "btn-animated-border btn-animated-border-primary",
             {
-              // Active state
-              "bg-primary text-primary-foreground shadow-glow-magenta hover:opacity-95 hover:shadow-glow-cyan":
+              // Active state - dark background for better border visibility
+              "bg-foreground dark:bg-[#0A0A0B] text-background dark:text-foreground shadow-lg hover:opacity-95":
                 inStock && selectedVariant && isValidVariant && !disabled && !isAdding,
               // Disabled/Out of stock state
               "bg-muted text-muted-foreground cursor-not-allowed opacity-60":
