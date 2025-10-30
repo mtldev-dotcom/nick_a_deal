@@ -35,6 +35,7 @@ const LineItemPrice = ({
                 {convertToLocale({
                   amount: originalPrice,
                   currency_code: currencyCode,
+                  omitCurrencySymbol: style === "tight",
                 })}
               </span>
             </p>
@@ -54,6 +55,7 @@ const LineItemPrice = ({
           {convertToLocale({
             amount: currentPrice,
             currency_code: currencyCode,
+            omitCurrencySymbol: style === "tight",
           })}
         </span>
       </div>

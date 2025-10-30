@@ -116,7 +116,7 @@ const CartDropdown = ({
                     })
                     .map((item) => (
                       <div
-                        className="grid grid-cols-[122px_1fr] gap-x-4 p-3 rounded-lg bg-background/50 hover:bg-background transition-colors"
+                        className="grid grid-cols-[122px_1fr] gap-x-4 px-4 py-3 rounded-lg bg-background/50 hover:bg-background transition-colors"
                         key={item.id}
                         data-testid="cart-item"
                       >
@@ -156,7 +156,7 @@ const CartDropdown = ({
                                   Quantity: {item.quantity}
                                 </span>
                               </div>
-                              <div className="flex justify-end">
+                              <div className="flex justify-end pr-2">
                                 <LineItemPrice
                                   item={item}
                                   style="tight"
