@@ -1,3 +1,155 @@
+## Nick a Deal — MedusaJS Deployment (Dokploy + Nixpacks)
+
+This document captures the working configuration for deploying the Medusa backend (server + worker) on Dokploy using Nixpacks, with Postgres and Redis, and Stripe.
+
+References:
+- Medusa deployment guide: https://docs.medusajs.com/learn/deployment/general
+- Medusa CLI db: https://docs.medusajs.com/resources/medusa-cli/commands/db
+- Stripe provider: https://docs.medusajs.com/resources/commerce-modules/payment/payment-provider/stripe#content
+- Dokploy Nixpacks build type: https://docs.dokploy.com/docs/core/applications/build-type#nixpacks
+
+---
+
+### Repository layout
+- Build Path: `/nick-a-deal-shop` (Medusa app is in this subfolder)
+
+---
+
+## 1) Build/Start commands (Nixpacks)
+
+Set these in Dokploy → Application → Environment Variables (Nixpacks honors NIXPACKS_*).
+
+- NIXPACKS_INSTALL_CMD
+  - `corepack enable && corepack prepare yarn@4.3.0 --activate && yarn install`
+
+- NIXPACKS_BUILD_CMD
+  - `corepack enable && corepack prepare yarn@4.3.0 --activate && yarn install && yarn build`
+
+- NIXPACKS_START_CMD
+  - `corepack enable && corepack prepare yarn@4.3.0 --activate && yarn predeploy && cd .medusa/server && yarn install --immutable && yarn start`
+
+Notes
+- Corepack is required for Yarn 4; the above commands force-activate it.
+- Port is 9000; ensure `PORT=9000`.
+
+---
+
+## 2) Server application (medusa-server)
+
+General
+- Build Type: Nixpacks
+- Build Path: `/nick-a-deal-shop`
+- Port: `9000`
+- Health check:
+  - Path: `/health`
+  - Initial delay: 20s
+  - Interval: 10s
+  - Timeout: 5s
+
+Environment variables
+- Required (Medusa)
+  - `MEDUSA_WORKER_MODE=server`
+  - `DISABLE_MEDUSA_ADMIN=false`
+  - `PORT=9000`
+  - `DATABASE_URL=postgresql://postgres:Lise3517@5.161.238.111:5433/nick_deal_db?sslmode=disable`
+  - `REDIS_URL=redis://<user>:<pass>@<redis-host>:6379`
+  - `JWT_SECRET=<32+ char random shared with worker>`
+  - `COOKIE_SECRET=<32+ char random shared with worker>`
+- CORS + Admin URL (server only)
+  - `STORE_CORS=https://<storefront-domain>`
+  - `ADMIN_CORS=https://<backend-domain>`
+  - `AUTH_CORS=https://<storefront-domain>,https://<backend-domain>`
+  - `MEDUSA_BACKEND_URL=https://<backend-domain>`
+- Stripe (server only)
+  - `STRIPE_API_KEY=sk_test_...`
+  - `STRIPE_WEBHOOK_SECRET=whsec_...`
+
+After deploy
+- Verify: `https://<backend-domain>/health` → `OK`
+- Admin UI: `https://<backend-domain>/app`
+- Create admin user via Run Command (once):
+  - `npx medusa user -e you@example.com -p <password>`
+
+---
+
+## 3) Worker application (medusa-worker)
+
+General
+- Build Type: Nixpacks
+- Build Path: `/nick-a-deal-shop`
+- No domain/route needed
+- Port: `9000` (not exposed)
+
+Environment variables
+- Required
+  - `MEDUSA_WORKER_MODE=worker`
+  - `DISABLE_MEDUSA_ADMIN=true`
+  - `PORT=9000`
+  - `DATABASE_URL=postgresql://postgres:Lise3517@5.161.238.111:5433/nick_deal_db?sslmode=disable`
+  - `REDIS_URL=redis://<user>:<pass>@<redis-host>:6379`
+  - `JWT_SECRET=<same as server>`
+  - `COOKIE_SECRET=<same as server>`
+- Do NOT set on the worker
+  - `STORE_CORS`, `ADMIN_CORS`, `AUTH_CORS`, `MEDUSA_BACKEND_URL`
+  - Stripe vars are not required here
+
+Nixpacks commands
+- Same `NIXPACKS_INSTALL_CMD`, `NIXPACKS_BUILD_CMD`, `NIXPACKS_START_CMD` as server (above).
+
+---
+
+## 4) Database and Redis
+
+- Postgres (Dokploy): use the external endpoint or service name if both apps share the same network.
+- If your DB does not support SSL, ensure `?sslmode=disable` is appended to `DATABASE_URL` (server and worker).
+- Redis: provide credentials and host. Example: `redis://default:<password>@<host>:6379`
+
+---
+
+## 5) Stripe setup
+
+- Get API keys:
+  - Stripe Dashboard → Developers → API keys → Secret key → `STRIPE_API_KEY`
+- Create webhook:
+  - Stripe Dashboard → Developers → Webhooks → “Add endpoint”
+  - URL: `https://<backend-domain>/hooks/payment/stripe_stripe`
+  - Events:
+    - `payment_intent.amount_capturable_updated`
+    - `payment_intent.succeeded`
+    - `payment_intent.payment_failed`
+    - `payment_intent.partially_funded`
+  - Reveal signing secret → set `STRIPE_WEBHOOK_SECRET` on server app → Redeploy.
+
+---
+
+## 6) Troubleshooting
+
+- Process exits immediately (restarts in Dokploy):
+  - Ensure `NIXPACKS_START_CMD` is the simplified version with `cd .medusa/server && yarn start`.
+  - Check that `PORT=9000` is set and health check initial delay is ≥ 20s.
+
+- “The server does not support SSL connections”:
+  - Append `?sslmode=disable` to `DATABASE_URL` (both apps).
+
+- Yarn/Corepack errors:
+  - Ensure NIXPACKS_* commands include `corepack enable` and `corepack prepare yarn@4.3.0 --activate`.
+
+- CORS/Admin URL:
+  - Only on the server app; not on the worker.
+
+---
+
+## 7) Expected logs on success
+
+- During startup:
+  - Migrations completed
+  - Syncing links…
+  - Database already up-to-date
+  - Listening on 0.0.0.0:9000 (or equivalent)
+- Health: `GET /health` returns `OK`
+
+---
+
 ### Summary
 We’ll deploy your MedusaJS backend to Dokploy with two instances: one “server” (serves API + Admin) and one “worker” (background jobs). We’ll add a small set of config changes (worker mode, admin settings, Redis URL, predeploy script), then configure two Dokploy Applications (or a single Docker Compose app) that connect to your already-provisioned Postgres and Redis. I’ll outline both Nixpacks-based and Dockerfile-based builds for Dokploy.
 

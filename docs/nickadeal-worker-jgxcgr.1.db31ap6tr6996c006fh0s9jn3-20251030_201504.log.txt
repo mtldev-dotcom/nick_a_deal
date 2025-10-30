@@ -1,0 +1,99 @@
+2025-10-30T20:14:36.735Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.735Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.735Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.735Z {"level":"info","message":"MODULE: auth","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.758Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.758Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.758Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.758Z {"level":"info","message":"MODULE: auth","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.785Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.786Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.786Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.786Z {"level":"info","message":"MODULE: user","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.819Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.823Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.823Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.823Z {"level":"info","message":"MODULE: fulfillment","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.856Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.856Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.856Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.856Z {"level":"info","message":"MODULE: fulfillment","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.880Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.880Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.880Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.880Z {"level":"info","message":"MODULE: fulfillment","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.908Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.910Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.910Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.910Z {"level":"info","message":"MODULE: notification","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.939Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.939Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.939Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.940Z {"level":"info","message":"MODULE: notification","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.968Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.968Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.968Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.969Z {"level":"info","message":"MODULE: notification","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.997Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.998Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.998Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:36.998Z {"level":"info","message":"MODULE: cache","timestamp":"2025-10-30 20:14:36"}
+2025-10-30T20:14:37.024Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.025Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.025Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.025Z {"level":"info","message":"MODULE: event_bus","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.052Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.054Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.054Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.054Z {"level":"info","message":"MODULE: workflows","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.088Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.089Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.089Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.089Z {"level":"info","message":"MODULE: locking","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.115Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.116Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.116Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.116Z {"level":"info","message":"MODULE: file","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.144Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.144Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.144Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.144Z {"level":"info","message":"MODULE: file","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.170Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.170Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.170Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.170Z {"level":"info","message":"MODULE: file","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.199Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.199Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.199Z {"level":"info","message":"Migrations completed","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.199Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:37.360Z {"level":"info","message":"Syncing links...","timestamp":"2025-10-30 20:14:37"}
+2025-10-30T20:14:38.168Z {"level":"info","message":"Database already up-to-date","timestamp":"2025-10-30 20:14:38"}
+2025-10-30T20:14:38.168Z {"level":"info","message":"","timestamp":"2025-10-30 20:14:38"}
+2025-10-30T20:14:39.785Z {"level":"info","message":"No link to load from /app/node_modules/@medusajs/draft-order/.medusa/server/src/links. skipped.","timestamp":"2025-10-30 20:14:39"}
+2025-10-30T20:14:40.403Z {"level":"warn","message":"Local Event Bus installed. This is not recommended for production.","timestamp":"2025-10-30 20:14:40"}
+2025-10-30T20:14:40.406Z {"level":"info","message":"Locking module: Using \"in-memory\" as default.","timestamp":"2025-10-30 20:14:40"}
+2025-10-30T20:14:40.754Z {"level":"error","message":"Loaders for module Payment failed with the following error: \n{}","timestamp":"2025-10-30 20:14:40"}
+2025-10-30T20:14:40.756Z {"level":"error","message":"Could not resolve module: Payment. Error: Loaders for module Payment failed: Required option `apiKey` is missing in Stripe plugin\n","timestamp":"2025-10-30 20:14:40"}
+2025-10-30T20:14:40.765Z Error: Loaders for module Payment failed: Required option `apiKey` is missing in Stripe plugin
+2025-10-30T20:14:40.765Z at runLoaders (/app/node_modules/@medusajs/modules-sdk/src/loaders/utils/load-internal.ts:709:14)
+2025-10-30T20:14:40.765Z at async loadInternalModule (/app/node_modules/@medusajs/modules-sdk/src/loaders/utils/load-internal.ts:295:17)
+2025-10-30T20:14:40.765Z at async loadModule (/app/node_modules/@medusajs/modules-sdk/src/loaders/module-loader.ts:82:10)
+2025-10-30T20:14:40.765Z at async moduleLoader (/app/node_modules/@medusajs/modules-sdk/src/loaders/module-loader.ts:21:32)
+2025-10-30T20:14:40.765Z at async /app/node_modules/@medusajs/modules-sdk/src/medusa-module.ts:491:11
+2025-10-30T20:14:40.765Z at async Promise.allSettled (index 13)
+2025-10-30T20:14:40.765Z at async promiseAll (/app/node_modules/@medusajs/utils/src/common/promise-all.ts:27:18)
+2025-10-30T20:14:40.765Z at async Function.bootstrap_ (/app/node_modules/@medusajs/modules-sdk/src/medusa-module.ts:408:5)
+2025-10-30T20:14:40.765Z at async Function.bootstrapAll (/app/node_modules/@medusajs/modules-sdk/src/medusa-module.ts:307:12)
+2025-10-30T20:14:40.765Z at async loadModules (/app/node_modules/@medusajs/modules-sdk/src/medusa-app.ts:162:19)
+2025-10-30T20:14:40.889Z {"level":"error","message":"Loaders for module Payment failed: Required option `apiKey` is missing in Stripe plugin","stack":[{"columnNumber":14,"fileName":"/app/node_modules/@medusajs/modules-sdk/src/loaders/utils/load-internal.ts","functionName":"runLoaders","lineNumber":709,"methodName":null,"native":false,"typeName":null},{"columnNumber":17,"fileName":"/app/node_modules/@medusajs/modules-sdk/src/loaders/utils/load-internal.ts","functionName":"async loadInternalModule","lineNumber":295,"methodName":null,"native":false,"typeName":null},{"columnNumber":10,"fileName":"/app/node_modules/@medusajs/modules-sdk/src/loaders/module-loader.ts","functionName":"async loadModule","lineNumber":82,"methodName":null,"native":false,"typeName":null},{"columnNumber":32,"fileName":"/app/node_modules/@medusajs/modules-sdk/src/loaders/module-loader.ts","functionName":"async moduleLoader","lineNumber":21,"methodName":null,"native":false,"typeName":null},{"columnNumber":11,"fileName":"async /app/node_modules/@medusajs/modules-sdk/src/medusa-module.ts","functionName":null,"lineNumber":491,"methodName":null,"native":false,"typeName":null},{"columnNumber":null,"fileName":null,"functionName":"async Promise.allSettled","lineNumber":null,"methodName":"allSettled","native":false,"typeName":"async Promise"},{"columnNumber":18,"fileName":"/app/node_modules/@medusajs/utils/src/common/promise-all.ts","functionName":"async promiseAll","lineNumber":27,"methodName":null,"native":false,"typeName":null},{"columnNumber":5,"fileName":"/app/node_modules/@medusajs/modules-sdk/src/medusa-module.ts","functionName":"async Function.bootstrap_","lineNumber":408,"methodName":"bootstrap_","native":false,"typeName":"async Function"},{"columnNumber":12,"fileName":"/app/node_modules/@medusajs/modules-sdk/src/medusa-module.ts","functionName":"async Function.bootstrapAll","lineNumber":307,"methodName":"bootstrapAll","native":false,"typeName":"async Function"},{"columnNumber":19,"fileName":"/app/node_modules/@medusajs/modules-sdk/src/medusa-app.ts","functionName":"async loadModules","lineNumber":162,"methodName":null,"native":false,"typeName":null}],"timestamp":"2025-10-30 20:14:40"}
+2025-10-30T20:14:41.397Z ➤ YN0000: · Yarn 4.3.0
+2025-10-30T20:14:41.408Z ➤ YN0000: ┌ Resolution step
+2025-10-30T20:14:41.805Z ➤ YN0000: └ Completed in 0s 397ms
+2025-10-30T20:14:41.806Z ➤ YN0000: ┌ Post-resolution validation
+2025-10-30T20:14:41.806Z ➤ YN0002: │ nick-a-deal-shop@workspace:. doesn't provide posthog-node (p3ae31), requested by @medusajs/medusa.
+2025-10-30T20:14:41.806Z ➤ YN0086: │ Some peer dependencies are incorrectly met by your project; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code.
+2025-10-30T20:14:41.806Z ➤ YN0086: │ Some peer dependencies are incorrectly met by dependencies; run yarn explain peer-requirements for details.
+2025-10-30T20:14:41.879Z ➤ YN0000: └ Completed
+2025-10-30T20:14:41.879Z ➤ YN0000: ┌ Fetch step
+2025-10-30T20:14:42.968Z ➤ YN0000: └ Completed in 1s 89ms
+2025-10-30T20:14:43.037Z ➤ YN0000: ┌ Link step
