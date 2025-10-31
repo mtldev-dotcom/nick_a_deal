@@ -165,7 +165,7 @@ pg_restore -h [REMOTE_IP] -p [REMOTE_PORT] -U postgres -d [REMOTE_DB_NAME] --no-
 1. Find PostgreSQL installation (usually `C:\Program Files\PostgreSQL\[VERSION]\bin`)
 2. Add to PATH temporarily:
    ```powershell
-   $env:Path += ";C:\Program Files\PostgreSQL\[VERSION]\bin"
+   $env:Path += ";C:\Program Files\PostgreSQL\18\bin"
    ```
 3. For permanent: Add via System Environment Variables
 
