@@ -80,8 +80,11 @@ module.exports = {
         },
       },
       boxShadow: {
-        "glow-magenta": "var(--glow-magenta)",
-        "glow-cyan": "var(--glow-cyan)",
+        "glow-green": "var(--glow-green)",
+        "glow-blue": "var(--glow-blue)",
+        /* Legacy support - keeping old names for backward compatibility */
+        "glow-magenta": "var(--glow-green)",
+        "glow-cyan": "var(--glow-blue)",
       },
       borderRadius: {
         none: "0px",

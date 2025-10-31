@@ -68,7 +68,7 @@ export default function NavClient({ regions, cart, categories, collections }: Na
             </div>
 
             {/* Right: Search, Theme Toggle, Cart */}
-            <div className="flex items-center gap-x-2 sm:gap-x-4 h-full">
+            <div className="flex items-center justify-center gap-x-1.5 h-full">
               {/* Search Bar - Pill Style */}
               <div className="hidden md:flex items-center">
                 <div className="relative">

@@ -3,26 +3,36 @@
 @import "tailwindcss/utilities";
 
 /* Nick a Deal Brand Color System */
+/* New Palette: Malachite Green (Primary), Aero Blue (Accent), Selective Yellow */
 :root {
   /* Base */
   --background: #FFFFFF;
-  --foreground: #0A0A0B;
+  --foreground: #000000;
+  /* Black */
 
-  /* Brand Colors */
-  --brand-50: #F7E8F3;
-  --brand-100: #EFD1E9;
-  --brand-500: #B4228E;
-  /* Primary Magenta */
-  --brand-700: #572383;
-  /* Deep Purple */
+  /* Brand Colors - Malachite Green */
+  --brand-50: #E6F8EE;
+  /* Very light green tint */
+  --brand-100: #CCF1DC;
+  /* Light green tint */
+  --brand-500: #37a187;
+  /* Primary Malachite Green */
+  --brand-700: #25b893;
+  /* Darker green shade */
 
-  /* Accent Colors */
-  --accent-50: #E9F7FE;
-  --accent-100: #D2EFFC;
-  --accent-500: #2BB8EB;
-  /* Cyan */
-  --accent-700: #0B82CB;
-  /* Royal Blue */
+  /* Accent Colors - Aero Blue */
+  --accent-50: #E6F5FB;
+  /* Very light blue tint */
+  --accent-100: #CCEBF7;
+  /* Light blue tint */
+  --accent-500: #33bff0;
+  /* Secondary Aero Blue */
+  --accent-700: #2696C2;
+  /* Darker blue shade */
+
+  /* Special Accent - Selective Yellow */
+  --yellow-500: #f5b700;
+  /* Selective Yellow for highlights */
 
   /* Neutrals */
   --cloud-100: #E6E7F4;
@@ -32,31 +42,35 @@
 
   /* UI Tokens */
   --card: #FFFFFF;
-  --card-foreground: #0A0A0B;
-  --border: rgba(10, 10, 11, 0.08);
+  --card-foreground: #000000;
+  --border: rgba(0, 0, 0, 0.08);
   --ring: var(--accent-500);
 
   /* Shadcn/UI Tokens */
   --primary: var(--brand-500);
   --primary-foreground: #FFFFFF;
   --secondary: var(--accent-500);
-  --secondary-foreground: #0A0A0B;
+  --secondary-foreground: #000000;
   --muted-foreground: var(--muted);
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
 
-  /* Effects */
-  --glow-magenta: 0 8px 24px rgba(180, 34, 142, 0.28);
-  --glow-cyan: 0 8px 24px rgba(43, 184, 235, 0.28);
+  /* Effects - Updated for new colors */
+  --glow-green: 0 8px 24px rgba(4, 231, 98, 0.28);
+  /* Malachite green glow */
+  --glow-blue: 0 8px 24px rgba(51, 191, 240, 0.28);
+  /* Aero blue glow */
 
   /* Bright brand colors for shadows */
-  --bright-blue: #006AF9;
-  --bright-cyan: #00C0F9;
-  --bright-magenta: #DC00FE;
-  --bright-purple: #BC00FE;
+  --bright-blue: #01ADF8;
+  /* Aero blue */
+  --bright-green: #1CC89C;
+  /* Malachite green */
+  --bright-yellow: #FEC301;
+  /* Selective yellow */
 
   /* Light blue for dark mode shadows */
-  --light-blue-shadow: #87CEEB;
+  --light-blue-shadow: #01ADF8;
 
   /* Animated border gradient colors */
   --border-gradient-start: var(--brand-500);
@@ -70,16 +84,20 @@
 
 /* Dark Theme */
 [data-theme="dark"] {
-  --background: #0A0A0B;
-  --foreground: #F8FAFC;
+  --background: #000000;
+  /* Black */
+  --foreground: #FFFFFF;
+  /* White */
 
   --card: #1b1b1b;
-  --card-foreground: #F8FAFC;
-  --border: rgba(167, 167, 167, 0.12);
+  --card-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.12);
 
-  /* Increase saturation a touch in dark */
-  --primary: #C02A97;
-  --secondary: #33BFF0;
+  /* Slightly brighter for dark mode visibility */
+  --primary: #1CC89C;
+  /* Brighter green for dark mode */
+  --secondary: #01ADF8;
+  /* Brighter blue for dark mode */
 
   --ring: var(--secondary);
 }
@@ -136,6 +154,19 @@
 
 @layer components {
 
+  /* Bright brand color backgrounds for cards */
+  .bg-bright-blue {
+    background-color: var(--bright-blue);
+  }
+
+  .bg-bright-green {
+    background-color: var(--bright-green);
+  }
+
+  .bg-bright-yellow {
+    background-color: var(--bright-yellow);
+  }
+
   /* Hero background dark mode fix via attribute selector on <html data-theme="dark"> */
   .hero-dark-overlay {
     display: none;
@@ -146,6 +177,23 @@
   }
 
   [data-theme="dark"] .hero-dark-overlay {
+    display: block;
+  }
+
+  /* Theme-aware hero background images */
+  .hero-bg-light {
+    display: block;
+  }
+
+  .hero-bg-dark {
+    display: none;
+  }
+
+  [data-theme="dark"] .hero-bg-light {
+    display: none;
+  }
+
+  [data-theme="dark"] .hero-bg-dark {
     display: block;
   }
 
@@ -254,7 +302,7 @@
     }
   }
 
-  /* Primary variant - magenta to cyan */
+  /* Primary variant - green to blue */
   .btn-animated-border-primary::before {
     background: linear-gradient(90deg,
         var(--brand-500),
@@ -264,7 +312,7 @@
         var(--brand-500));
   }
 
-  /* Secondary variant - cyan to magenta */
+  /* Secondary variant - blue to green */
   .btn-animated-border-secondary::before {
     background: linear-gradient(90deg,
         var(--accent-500),
@@ -386,9 +434,9 @@
   /* Base shadow when wrapper is not hovered - Light mode */
   .product-card-wrapper:not(:hover) .product-card-shadow .product-card {
     box-shadow:
-      0 4px 12px rgba(0, 106, 249, 0.08),
-      0 2px 6px rgba(0, 192, 249, 0.06),
-      0 1px 3px rgba(220, 0, 254, 0.04);
+      0 4px 12px rgba(51, 191, 240, 0.08),
+      0 2px 6px rgba(4, 231, 98, 0.06),
+      0 1px 3px rgba(245, 183, 0, 0.04);
   }
 
   /* Base shadow when wrapper is not hovered - Dark mode */
@@ -402,10 +450,10 @@
   /* Cursor-following shadow effect on hover - Light mode */
   .product-card-shadow .product-card {
     box-shadow:
-      calc(var(--shadow-offset-x, 0px)) calc(var(--shadow-offset-y, 0px)) 24px rgba(0, 106, 249, 0.15),
-      calc(var(--shadow-offset-x, 0px) * 0.75) calc(var(--shadow-offset-y, 0px) * 0.75) 16px rgba(0, 192, 249, 0.12),
-      calc(var(--shadow-offset-x, 0px) * 0.5) calc(var(--shadow-offset-y, 0px) * 0.5) 12px rgba(220, 0, 254, 0.1),
-      calc(var(--shadow-offset-x, 0px) * 0.25) calc(var(--shadow-offset-y, 0px) * 0.25) 8px rgba(188, 0, 254, 0.08);
+      calc(var(--shadow-offset-x, 0px)) calc(var(--shadow-offset-y, 0px)) 24px rgba(51, 191, 240, 0.15),
+      calc(var(--shadow-offset-x, 0px) * 0.75) calc(var(--shadow-offset-y, 0px) * 0.75) 16px rgba(4, 231, 98, 0.12),
+      calc(var(--shadow-offset-x, 0px) * 0.5) calc(var(--shadow-offset-y, 0px) * 0.5) 12px rgba(245, 183, 0, 0.1),
+      calc(var(--shadow-offset-x, 0px) * 0.25) calc(var(--shadow-offset-y, 0px) * 0.25) 8px rgba(2, 181, 77, 0.08);
     transition: box-shadow 0.15s ease-out;
   }
 

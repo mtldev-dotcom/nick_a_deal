@@ -2,7 +2,7 @@ import { listCategories } from "@lib/data/categories"
 import { listCollections } from "@lib/data/collections"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import Logo from "@modules/common/components/logo"
+import Icon from "@modules/common/components/icon"
 
 export default async function Footer() {
   const { collections } = await listCollections({
@@ -11,12 +11,12 @@ export default async function Footer() {
   const productCategories = await listCategories()
 
   return (
-    <footer className="border-t border-border bg-background w-full">
+    <footer className="relative z-10 border-t border-border bg-card w-full">
       <div className="content-container flex flex-col w-full">
         <div className="flex flex-col gap-y-12 xsmall:flex-row items-start justify-between py-16 md:py-24">
           {/* Brand Section */}
           <div className="flex flex-col gap-y-4">
-            <Logo />
+            <Icon />
             <p className="text-sm text-muted-foreground max-w-xs">
               Deals hand-picked by Nick. If Nick approved it, it's a deal.
             </p>

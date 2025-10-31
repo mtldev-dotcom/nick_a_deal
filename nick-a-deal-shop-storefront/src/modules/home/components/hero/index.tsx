@@ -1,18 +1,35 @@
+import Image from "next/image"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import WobbleCardDemo from "@/components/wobble-card-demo"
 
 const Hero = () => {
   return (
     <section className="relative w-full border-b border-border mb-8 md:mb-12 overflow-hidden">
-      {/* Arrow-streak background pattern */}
-      <div className="absolute inset-0 z-0 bg-[color:var(--accent-50)] hero-bg">
-        {/* Arrow streak decorative elements */}
-        <div className="absolute top-20 right-10 w-32 h-1 bg-gradient-to-r from-transparent via-[color:var(--accent-500)] to-transparent opacity-30 rotate-45" />
-        <div className="absolute top-40 right-32 w-24 h-1 bg-gradient-to-r from-transparent via-[color:var(--accent-500)] to-transparent opacity-20 rotate-12" />
-        <div className="absolute bottom-32 left-20 w-40 h-1 bg-gradient-to-r from-transparent via-[color:var(--accent-500)] to-transparent opacity-25 -rotate-12" />
-        <div className="absolute bottom-20 left-40 w-28 h-1 bg-gradient-to-r from-transparent via-[color:var(--accent-500)] to-transparent opacity-20 rotate-45" />
-        {/* Darken background subtly in dark theme */}
-        <div className="hero-dark-overlay absolute inset-0 bg-black/40 [mask-image:radial-gradient(130%_85%_at_50%_0%,_black,_transparent_70%)]" />
+      {/* Background images - theme-aware, full screen, fixed position */}
+      <div className="fixed top-0 left-0 w-screen h-screen z-0">
+        {/* Light mode background */}
+        <Image
+          src="/bg-streak-light-mode.png"
+          alt="Background streaks"
+          fill
+          className="object-cover hero-bg-light"
+          priority
+          quality={90}
+        />
+        {/* Dark mode background */}
+        <Image
+          src="/bg-streak-dark-mode.png"
+          alt="Background streaks"
+          fill
+          className="object-cover hero-bg-dark"
+          priority
+          quality={90}
+        />
+      </div>
+      {/* Background overlay for dark theme support - minimal overlay to show bg image */}
+      <div className="absolute inset-0 z-[1] pointer-events-none">
+        {/* Subtle overlay for dark theme only */}
+        <div className="hero-dark-overlay absolute inset-0 bg-black/20 [mask-image:radial-gradient(130%_85%_at_50%_0%,_black,_transparent_70%)]" />
       </div>
 
       {/* Content */}
