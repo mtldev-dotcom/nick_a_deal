@@ -302,21 +302,20 @@ export default async function importProducts({ container }: ExecArgs) {
                             Default: "Standard",
                         },
                         prices: [
-                            // Prices are in smallest currency unit (cents)
-                            // Convert CAD dollars to cents
+                            // Prices are stored as-is (MedusaJS handles currency formatting)
+                            // CSV prices are already in dollars (e.g., 128 = $128.00)
                             ...(csvProduct.cad > 0
                                 ? [
                                     {
-                                        amount: Math.round(csvProduct.cad * 100),
+                                        amount: Math.round(csvProduct.cad),
                                         currency_code: "cad",
                                     },
                                 ]
                                 : []),
-                            // Convert USD dollars to cents
                             ...(csvProduct.usd > 0
                                 ? [
                                     {
-                                        amount: Math.round(csvProduct.usd * 100),
+                                        amount: Math.round(csvProduct.usd),
                                         currency_code: "usd",
                                     },
                                 ]
