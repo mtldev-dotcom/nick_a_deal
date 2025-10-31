@@ -60,6 +60,13 @@ Environment variables
   - `ADMIN_CORS=https://<backend-domain>`
   - `AUTH_CORS=https://<storefront-domain>,https://<backend-domain>`
   - `MEDUSA_BACKEND_URL=https://<backend-domain>` (Required: Used for admin UI and generating static file URLs like export CSV links)
+- File Storage - Cloudflare R2 (server only, required for correct export CSV URLs)
+  - `S3_ACCESS_KEY_ID=<your-r2-access-key-id>` (Required: Cloudflare R2 API access key)
+  - `S3_SECRET_ACCESS_KEY=<your-r2-secret-access-key>` (Required: Cloudflare R2 API secret key)
+  - `S3_BUCKET=nick-a-deal` (Your R2 bucket name)
+  - `S3_REGION=auto` (Cloudflare R2 uses "auto" for region)
+  - `S3_ENDPOINT=https://adb42a8f4caba5f8c2c67f6a9eb2ddb6.r2.cloudflarestorage.com` (Your R2 endpoint)
+  - `S3_FILE_URL=https://<your-custom-domain-or-r2-public-url>` (Optional: Public URL where files are accessible. If not set, defaults to R2 bucket URL)
 - Stripe (server only)
   - `STRIPE_API_KEY=sk_test_...`
   - `STRIPE_WEBHOOK_SECRET=whsec_...`
@@ -138,13 +145,24 @@ Nixpacks commands
   - Only on the server app; not on the worker.
 
 - Export CSV links show `http://localhost:9000` instead of deployment domain:
-  - **Problem**: Product export CSV download links point to `http://localhost:9000/static/...` instead of your deployment domain.
-  - **Cause**: `MEDUSA_BACKEND_URL` environment variable is not set or is set to `localhost` in production.
+  - **Problem**: Product export CSV download links point to `http://localhost:9000/static/...` instead of your R2 bucket or deployment domain.
+  - **Cause**: File service is using local file storage instead of S3 (Cloudflare R2). MedusaJS uses local storage by default, which generates localhost URLs.
   - **Solution**: 
-    1. Set `MEDUSA_BACKEND_URL=https://nick-deal-admin.nickybruno.com` (your actual deployment domain) in Dokploy → Server Application → Environment Variables.
-    2. Redeploy the server application.
-    3. The backend will now generate correct URLs for export CSV files.
-  - **Verification**: Check server logs on startup - you should NOT see warnings about `MEDUSA_BACKEND_URL` being localhost in production. Try exporting products again and verify the CSV link uses your deployment domain.
+    1. **Install S3 file service package** (if not already installed):
+       ```bash
+       yarn add @medusajs/file-s3
+       ```
+    2. **Configure Cloudflare R2 credentials** in Dokploy → Server Application → Environment Variables:
+       - `S3_ACCESS_KEY_ID=<your-r2-access-key-id>`
+       - `S3_SECRET_ACCESS_KEY=<your-r2-secret-access-key>`
+       - `S3_BUCKET=nick-a-deal`
+       - `S3_REGION=auto`
+       - `S3_ENDPOINT=https://adb42a8f4caba5f8c2c67f6a9eb2ddb6.r2.cloudflarestorage.com`
+       - `S3_FILE_URL=https://<your-r2-public-url>` (Optional: If you have a custom domain or public R2 URL)
+    3. **Ensure R2 bucket is publicly accessible** for the exported files (configure in Cloudflare dashboard).
+    4. Redeploy the server application.
+    5. Export products again - CSV links should now use your R2 bucket URL.
+  - **Note**: `MEDUSA_BACKEND_URL` is still required for admin UI, but file URLs will come from R2 bucket when S3 file service is configured.
 
 ---
 
