@@ -27,7 +27,21 @@ if (!isWorker && process.env.STRIPE_API_KEY) {
 
 // Ensure MEDUSA_BACKEND_URL uses HTTPS for non-localhost domains to prevent Mixed Content errors
 // Browsers block HTTP requests from HTTPS pages (Mixed Content policy)
+// This URL is also used by MedusaJS file service to generate static file URLs (e.g., export CSV links)
 let backendUrl = process.env.MEDUSA_BACKEND_URL
+
+// Warn if MEDUSA_BACKEND_URL is not set or is localhost in production
+const isProduction = process.env.NODE_ENV === 'production'
+if (!backendUrl && isProduction) {
+  console.error('[Medusa Config] WARNING: MEDUSA_BACKEND_URL is not set in production!')
+  console.error('[Medusa Config] Static file URLs (export CSVs, etc.) will use localhost, which will fail.')
+  console.error('[Medusa Config] Please set MEDUSA_BACKEND_URL=https://nick-deal-admin.nickybruno.com in your deployment environment.')
+} else if (backendUrl && (backendUrl.includes('localhost') || backendUrl.includes('127.0.0.1')) && isProduction) {
+  console.error('[Medusa Config] WARNING: MEDUSA_BACKEND_URL is set to localhost in production!')
+  console.error('[Medusa Config] Static file URLs (export CSVs, etc.) will be incorrect.')
+  console.error('[Medusa Config] Please set MEDUSA_BACKEND_URL=https://nick-deal-admin.nickybruno.com in your deployment environment.')
+}
+
 if (backendUrl && backendUrl.startsWith('http://')) {
   // Only convert HTTP to HTTPS for non-localhost domains
   // localhost is typically used in development and may not have HTTPS

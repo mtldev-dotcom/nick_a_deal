@@ -59,7 +59,7 @@ Environment variables
   - `STORE_CORS=https://<storefront-domain>`
   - `ADMIN_CORS=https://<backend-domain>`
   - `AUTH_CORS=https://<storefront-domain>,https://<backend-domain>`
-  - `MEDUSA_BACKEND_URL=https://<backend-domain>`
+  - `MEDUSA_BACKEND_URL=https://<backend-domain>` (Required: Used for admin UI and generating static file URLs like export CSV links)
 - Stripe (server only)
   - `STRIPE_API_KEY=sk_test_...`
   - `STRIPE_WEBHOOK_SECRET=whsec_...`
@@ -128,7 +128,7 @@ Nixpacks commands
   - Ensure `NIXPACKS_START_CMD` is the simplified version with `cd .medusa/server && yarn start`.
   - Check that `PORT=9000` is set and health check initial delay is ≥ 20s.
 
-- “The server does not support SSL connections”:
+- "The server does not support SSL connections":
   - Append `?sslmode=disable` to `DATABASE_URL` (both apps).
 
 - Yarn/Corepack errors:
@@ -136,6 +136,15 @@ Nixpacks commands
 
 - CORS/Admin URL:
   - Only on the server app; not on the worker.
+
+- Export CSV links show `http://localhost:9000` instead of deployment domain:
+  - **Problem**: Product export CSV download links point to `http://localhost:9000/static/...` instead of your deployment domain.
+  - **Cause**: `MEDUSA_BACKEND_URL` environment variable is not set or is set to `localhost` in production.
+  - **Solution**: 
+    1. Set `MEDUSA_BACKEND_URL=https://nick-deal-admin.nickybruno.com` (your actual deployment domain) in Dokploy → Server Application → Environment Variables.
+    2. Redeploy the server application.
+    3. The backend will now generate correct URLs for export CSV files.
+  - **Verification**: Check server logs on startup - you should NOT see warnings about `MEDUSA_BACKEND_URL` being localhost in production. Try exporting products again and verify the CSV link uses your deployment domain.
 
 ---
 
