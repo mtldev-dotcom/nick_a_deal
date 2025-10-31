@@ -25,6 +25,19 @@ if (!isWorker && process.env.STRIPE_API_KEY) {
   })
 }
 
+// Ensure MEDUSA_BACKEND_URL uses HTTPS for non-localhost domains to prevent Mixed Content errors
+// Browsers block HTTP requests from HTTPS pages (Mixed Content policy)
+let backendUrl = process.env.MEDUSA_BACKEND_URL
+if (backendUrl && backendUrl.startsWith('http://')) {
+  // Only convert HTTP to HTTPS for non-localhost domains
+  // localhost is typically used in development and may not have HTTPS
+  const isLocalhost = backendUrl.includes('localhost') || backendUrl.includes('127.0.0.1')
+  if (!isLocalhost) {
+    backendUrl = backendUrl.replace('http://', 'https://')
+    console.warn('[Medusa Config] Converted MEDUSA_BACKEND_URL from HTTP to HTTPS to prevent Mixed Content errors')
+  }
+}
+
 module.exports = defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
@@ -44,7 +57,7 @@ module.exports = defineConfig({
   // Admin UI config: disable for worker instance and set backend URL for server instance
   admin: {
     disable: process.env.DISABLE_MEDUSA_ADMIN === 'true',
-    backendUrl: process.env.MEDUSA_BACKEND_URL,
+    backendUrl: backendUrl, // Use the sanitized URL that enforces HTTPS in production
   },
   // Conditionally registered modules
   modules,
