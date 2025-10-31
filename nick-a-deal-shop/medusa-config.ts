@@ -31,15 +31,22 @@ if (!isWorker && process.env.STRIPE_API_KEY) {
 let backendUrl = process.env.MEDUSA_BACKEND_URL
 
 // Warn if MEDUSA_BACKEND_URL is not set or is localhost in production
+// Only check servers (workers don't need MEDUSA_BACKEND_URL)
 const isProduction = process.env.NODE_ENV === 'production'
-if (!backendUrl && isProduction) {
-  console.error('[Medusa Config] WARNING: MEDUSA_BACKEND_URL is not set in production!')
-  console.error('[Medusa Config] Static file URLs (export CSVs, etc.) will use localhost, which will fail.')
-  console.error('[Medusa Config] Please set MEDUSA_BACKEND_URL=https://nick-deal-admin.nickybruno.com in your deployment environment.')
-} else if (backendUrl && (backendUrl.includes('localhost') || backendUrl.includes('127.0.0.1')) && isProduction) {
-  console.error('[Medusa Config] WARNING: MEDUSA_BACKEND_URL is set to localhost in production!')
-  console.error('[Medusa Config] Static file URLs (export CSVs, etc.) will be incorrect.')
-  console.error('[Medusa Config] Please set MEDUSA_BACKEND_URL=https://nick-deal-admin.nickybruno.com in your deployment environment.')
+const isServer = !isWorker // Server instance (not worker)
+if (isServer && isProduction) {
+  if (!backendUrl) {
+    console.error('[Medusa Config] WARNING: MEDUSA_BACKEND_URL is not set in production!')
+    console.error('[Medusa Config] Static file URLs (export CSVs, etc.) will use localhost, which will fail.')
+    console.error('[Medusa Config] Please set MEDUSA_BACKEND_URL=https://nick-deal-admin.nickybruno.com in your deployment environment.')
+  } else if (backendUrl.includes('localhost') || backendUrl.includes('127.0.0.1')) {
+    console.error('[Medusa Config] WARNING: MEDUSA_BACKEND_URL is set to localhost in production!')
+    console.error('[Medusa Config] Current value:', backendUrl)
+    console.error('[Medusa Config] Static file URLs (export CSVs, etc.) will be incorrect.')
+    console.error('[Medusa Config] Please set MEDUSA_BACKEND_URL=https://nick-deal-admin.nickybruno.com in your deployment environment.')
+  } else {
+    console.log('[Medusa Config] MEDUSA_BACKEND_URL is set correctly:', backendUrl)
+  }
 }
 
 if (backendUrl && backendUrl.startsWith('http://')) {

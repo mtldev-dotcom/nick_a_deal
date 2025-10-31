@@ -1,0 +1,188 @@
+2025-10-31T18:28:13.290Z Preparing yarn@4.3.0 for immediate activation...
+2025-10-31T18:28:15.813Z {"level":"info","message":"No link to load from /app/node_modules/@medusajs/draft-order/.medusa/server/src/links. skipped.","timestamp":"2025-10-31 18:28:15"}
+2025-10-31T18:28:15.815Z {"level":"info","message":"Running migrations...","timestamp":"2025-10-31 18:28:15"}
+2025-10-31T18:28:17.071Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.071Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.072Z {"level":"info","message":"MODULE: stock_location","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.145Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.147Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.147Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.147Z {"level":"info","message":"MODULE: inventory","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.189Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.191Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.191Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.191Z {"level":"info","message":"MODULE: product","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.229Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.230Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.231Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.231Z {"level":"info","message":"MODULE: pricing","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.271Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.273Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.273Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.273Z {"level":"info","message":"MODULE: promotion","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.321Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.322Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.322Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.323Z {"level":"info","message":"MODULE: customer","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.361Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.362Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.362Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.362Z {"level":"info","message":"MODULE: sales_channel","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.398Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.401Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.401Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.401Z {"level":"info","message":"MODULE: cart","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.444Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.446Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.446Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.446Z {"level":"info","message":"MODULE: region","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.487Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.488Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.488Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.488Z {"level":"info","message":"MODULE: api_key","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.533Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.534Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.534Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.534Z {"level":"info","message":"MODULE: store","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.562Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.563Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.564Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.564Z {"level":"info","message":"MODULE: tax","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.600Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.602Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.602Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.602Z {"level":"info","message":"MODULE: currency","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.640Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.643Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.643Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.643Z {"level":"info","message":"MODULE: payment","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.684Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.684Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.684Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.684Z {"level":"info","message":"MODULE: payment","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.717Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.717Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.717Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.717Z {"level":"info","message":"MODULE: payment","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.757Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.760Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.760Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.760Z {"level":"info","message":"MODULE: order","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.804Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.805Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.805Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.806Z {"level":"info","message":"MODULE: settings","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.837Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.840Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.840Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.840Z {"level":"info","message":"MODULE: auth","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.873Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.873Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.873Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.874Z {"level":"info","message":"MODULE: auth","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.903Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.903Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.903Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.903Z {"level":"info","message":"MODULE: auth","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.937Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.938Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.938Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.938Z {"level":"info","message":"MODULE: user","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.974Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.977Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.977Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:17.977Z {"level":"info","message":"MODULE: fulfillment","timestamp":"2025-10-31 18:28:17"}
+2025-10-31T18:28:18.013Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.013Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.013Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.013Z {"level":"info","message":"MODULE: fulfillment","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.042Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.042Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.042Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.042Z {"level":"info","message":"MODULE: fulfillment","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.078Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.080Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.080Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.080Z {"level":"info","message":"MODULE: notification","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.116Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.116Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.116Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.116Z {"level":"info","message":"MODULE: notification","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.145Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.145Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.145Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.145Z {"level":"info","message":"MODULE: notification","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.180Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.181Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.181Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.181Z {"level":"info","message":"MODULE: cache","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.225Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.227Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.227Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.227Z {"level":"info","message":"MODULE: event_bus","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.264Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.265Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.265Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.265Z {"level":"info","message":"MODULE: workflows","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.300Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.302Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.302Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.302Z {"level":"info","message":"MODULE: locking","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.332Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.334Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.334Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.334Z {"level":"info","message":"MODULE: file","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.367Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.367Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.367Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.367Z {"level":"info","message":"MODULE: file","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.395Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.395Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.395Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.395Z {"level":"info","message":"MODULE: file","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.431Z {"level":"info","message":"Skipped. Database is up-to-date for module.","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.431Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.431Z {"level":"info","message":"Migrations completed","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.431Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:18.585Z {"level":"info","message":"Syncing links...","timestamp":"2025-10-31 18:28:18"}
+2025-10-31T18:28:19.459Z {"level":"info","message":"Database already up-to-date","timestamp":"2025-10-31 18:28:19"}
+2025-10-31T18:28:19.459Z {"level":"info","message":"","timestamp":"2025-10-31 18:28:19"}
+2025-10-31T18:28:21.109Z {"level":"info","message":"No link to load from /app/node_modules/@medusajs/draft-order/.medusa/server/src/links. skipped.","timestamp":"2025-10-31 18:28:21"}
+2025-10-31T18:28:21.721Z {"level":"warn","message":"Local Event Bus installed. This is not recommended for production.","timestamp":"2025-10-31 18:28:21"}
+2025-10-31T18:28:21.725Z {"level":"info","message":"Locking module: Using \"in-memory\" as default.","timestamp":"2025-10-31 18:28:21"}
+2025-10-31T18:28:22.541Z {"level":"info","message":"No pending migration scripts to execute","timestamp":"2025-10-31 18:28:22"}
+2025-10-31T18:28:23.045Z ➤ YN0000: · Yarn 4.3.0
+2025-10-31T18:28:23.059Z ➤ YN0000: ┌ Resolution step
+2025-10-31T18:28:23.389Z ➤ YN0000: └ Completed in 0s 330ms
+2025-10-31T18:28:23.390Z ➤ YN0000: ┌ Post-resolution validation
+2025-10-31T18:28:23.390Z ➤ YN0002: │ nick-a-deal-shop@workspace:. doesn't provide posthog-node (p3ae31), requested by @medusajs/medusa.
+2025-10-31T18:28:23.390Z ➤ YN0086: │ Some peer dependencies are incorrectly met by your project; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code.
+2025-10-31T18:28:23.390Z ➤ YN0086: │ Some peer dependencies are incorrectly met by dependencies; run yarn explain peer-requirements for details.
+2025-10-31T18:28:23.461Z ➤ YN0000: └ Completed
+2025-10-31T18:28:23.462Z ➤ YN0000: ┌ Fetch step
+2025-10-31T18:28:24.514Z ➤ YN0000: └ Completed in 1s 52ms
+2025-10-31T18:28:24.588Z ➤ YN0000: ┌ Link step
+2025-10-31T18:28:36.672Z ➤ YN0007: │ @swc/core@npm:1.5.7 [dab9c] must be built because it never has been before or the last one failed
+2025-10-31T18:28:36.673Z ➤ YN0007: │ @medusajs/telemetry@npm:2.11.1 must be built because it never has been before or the last one failed
+2025-10-31T18:28:36.673Z ➤ YN0007: │ esbuild@npm:0.21.5 must be built because it never has been before or the last one failed
+2025-10-31T18:28:36.674Z ➤ YN0007: │ msgpackr-extract@npm:3.0.3 must be built because it never has been before or the last one failed
+2025-10-31T18:28:36.674Z ➤ YN0007: │ protobufjs@npm:7.5.4 must be built because it never has been before or the last one failed
+2025-10-31T18:28:37.114Z ➤ YN0000: └ Completed in 12s 526ms
+2025-10-31T18:28:37.373Z ➤ YN0000: · Done with warnings in 14s 329ms
+2025-10-31T18:28:40.068Z {"level":"info","message":"Skipping instrumentation registration. No register function found.","timestamp":"2025-10-31 18:28:40"}
+2025-10-31T18:28:40.116Z {"level":"info","message":"No link to load from /app/.medusa/server/node_modules/@medusajs/draft-order/.medusa/server/src/links. skipped.","timestamp":"2025-10-31 18:28:40"}
+2025-10-31T18:28:40.116Z {"level":"info","message":"No link to load from /app/.medusa/server/src/links. skipped.","timestamp":"2025-10-31 18:28:40"}
+2025-10-31T18:28:40.868Z {"level":"warn","message":"Local Event Bus installed. This is not recommended for production.","timestamp":"2025-10-31 18:28:40"}
+2025-10-31T18:28:40.872Z {"level":"info","message":"Locking module: Using \"in-memory\" as default.","timestamp":"2025-10-31 18:28:40"}
+2025-10-31T18:28:41.818Z {"level":"info","message":"No workflow to load from /app/.medusa/server/src/workflows. skipped.","timestamp":"2025-10-31 18:28:41"}
+2025-10-31T18:28:41.818Z {"level":"info","message":"No workflow to load from /app/.medusa/server/node_modules/@medusajs/draft-order/.medusa/server/src/workflows. skipped.","timestamp":"2025-10-31 18:28:41"}
+2025-10-31T18:28:43.092Z {"activity_id":"01K8XREVYKZEJWMM6WSCAZTWJA","config":{},"level":"info","message":"Creating server","timestamp":"2025-10-31 18:28:43"}
+2025-10-31T18:28:43.124Z {"activity_id":"01K8XREVYKZEJWMM6WSCAZTWJA","duration":32,"level":"info","message":"Server is ready on port: 9000","timestamp":"2025-10-31 18:28:43"}
+2025-10-31T18:28:43.163Z {"level":"http","client_ip":"172.20.0.1","request_id":"8802be1f-9fe8-493a-ac1f-793eaddebee6","http_version":"1.1","method":"GET","path":"/store/customers/me?fields=%2Aorders","status":401,"response_size":"26","request_size":0,"duration":27.906,"referrer":"-","user_agent":"node","timestamp":"2025-10-31T18:28:43.162Z"}
+2025-10-31T18:28:44.647Z {"level":"http","client_ip":"172.20.0.1","request_id":"0f6fd7d4-e42f-4ba1-b8de-11222a86158a","http_version":"1.1","method":"GET","path":"/store/customers/me?fields=%2Aorders","status":401,"response_size":"26","request_size":0,"duration":17.452,"referrer":"-","user_agent":"node","timestamp":"2025-10-31T18:28:44.647Z"}
+2025-10-31T18:28:44.711Z {"level":"http","client_ip":"172.20.0.1","request_id":"aef24f15-6b1e-49ad-843e-901544fb8ba1","http_version":"1.1","method":"GET","path":"/store/products?limit=100&offset=0&region_id=reg_01K8RWV2KZJZTEJ4K57MTBT8W8&fields=%2Avariants.calculated_price%2C%2Bvariants.inventory_quantity%2C%2Bmetadata%2C%2Btags%2C%2Acollection&order=created_at","status":200,"response_size":"66326","request_size":0,"duration":210.611,"referrer":"-","user_agent":"node","timestamp":"2025-10-31T18:28:44.710Z"}
+2025-10-31T18:35:54.722Z {"level":"http","client_ip":"213.209.157.232","request_id":"bc7fe09f-1da8-4fd2-99d8-9dfb7797e1dd","http_version":"1.1","method":"GET","path":"/","status":404,"response_size":139,"request_size":0,"duration":31.593,"referrer":"-","user_agent":"Mozilla/5.0 (Linux; Android 8.0.0; HTC U Ultra) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.89 Mobile Safari/537.36","timestamp":"2025-10-31T18:35:54.722Z"}
+2025-10-31T18:47:37.437Z {"level":"http","client_ip":"69.156.10.186","request_id":"f420e55c-86e8-46df-95af-9d67b708d361","http_version":"1.1","method":"GET","path":"/store/customers/me?fields=%2Aorders","status":401,"response_size":"26","request_size":0,"duration":9.761,"referrer":"-","user_agent":"node","timestamp":"2025-10-31T18:47:37.437Z"}
+2025-10-31T18:47:38.596Z {"level":"http","client_ip":"69.156.10.186","request_id":"805ad118-382a-4cf6-8e6d-88f703f2cd4d","http_version":"1.1","method":"GET","path":"/store/customers/me?fields=%2Aorders","status":401,"response_size":"26","request_size":0,"duration":7.205,"referrer":"-","user_agent":"node","timestamp":"2025-10-31T18:47:38.596Z"}
+2025-10-31T19:05:44.348Z {"level":"http","client_ip":"193.138.7.183","request_id":"5fd0eda2-797b-4022-928e-ae38d9adf6db","http_version":"1.1","method":"GET","path":"/","status":404,"response_size":139,"request_size":0,"duration":1.927,"referrer":"-","user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36","timestamp":"2025-10-31T19:05:44.348Z"}
+2025-10-31T19:05:44.717Z {"level":"http","client_ip":"193.138.7.183","request_id":"780d748a-6fa1-4ae6-ac3f-891826157ae9","http_version":"1.1","method":"GET","path":"/favicon.ico","status":404,"response_size":150,"request_size":0,"duration":1.561,"referrer":"-","user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36","timestamp":"2025-10-31T19:05:44.717Z"}
