@@ -7,10 +7,10 @@ export const getPricesForVariant = (variant: any) => {
     return null
   }
 
-  // Prices in database are stored in dollars, but MedusaJS treats them as cents
-  // Divide by 100 to convert from cents to dollars for display
-  const calculatedAmount = variant.calculated_price.calculated_amount / 100
-  const originalAmount = variant.calculated_price.original_amount / 100
+  // MedusaJS 2.0+ returns calculated_amount already in the base currency unit (dollars/CAD/etc)
+  // No division needed - use the amount directly
+  const calculatedAmount = variant.calculated_price.calculated_amount
+  const originalAmount = variant.calculated_price.original_amount
 
   return {
     calculated_price_number: calculatedAmount,

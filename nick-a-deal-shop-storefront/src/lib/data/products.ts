@@ -4,6 +4,7 @@ import { sdk } from "@lib/config"
 import { sortProducts } from "@lib/util/sort-products"
 import { HttpTypes } from "@medusajs/types"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+import { getCurrencyForCountry, validateRegionCurrency } from "@lib/util/get-currency-for-country"
 import { getAuthHeaders, getCacheOptions } from "./cookies"
 import { getRegion, retrieveRegion } from "./regions"
 
@@ -34,6 +35,18 @@ export const listProducts = async ({
 
   if (countryCode) {
     region = await getRegion(countryCode)
+    
+    // Validate that the region's currency matches the expected currency for this country
+    if (region && !validateRegionCurrency(countryCode, region.currency_code)) {
+      // Log warning in development to help debug region configuration issues
+      if (process.env.NODE_ENV === "development") {
+        const expectedCurrency = getCurrencyForCountry(countryCode)
+        console.warn(
+          `[Currency Mismatch] Country "${countryCode}" expects currency "${expectedCurrency}", but region has "${region.currency_code}". ` +
+          `Please ensure the region for "${countryCode}" is configured with currency "${expectedCurrency}" in Medusa Admin.`
+        )
+      }
+    }
   } else {
     region = await retrieveRegion(regionId!)
   }
@@ -53,6 +66,8 @@ export const listProducts = async ({
     ...(await getCacheOptions("products")),
   }
 
+  // MedusaJS returns prices in the region's currency when region_id is provided.
+  // Do not pass unsupported query params like currency_code (causes 400 errors).
   return sdk.client
     .fetch<{ products: HttpTypes.StoreProduct[]; count: number }>(
       `/store/products`,

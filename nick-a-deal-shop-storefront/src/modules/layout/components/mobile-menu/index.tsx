@@ -7,9 +7,11 @@ import { usePathname, useParams } from "next/navigation"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CountrySelect from "../country-select"
+import CurrencySelect from "../currency-select"
 import ThemeToggle from "../theme-toggle"
 import { HttpTypes } from "@medusajs/types"
 import { useToggleState } from "@medusajs/ui"
+import { useMemo } from "react"
 
 const MenuItems = [
   { name: "Home", href: "/" },
@@ -31,6 +33,17 @@ export default function MobileMenu({ isOpen, onClose, regions }: MobileMenuProps
   const pathname = usePathname()
   const { countryCode } = useParams() as { countryCode: string }
   const toggleState = useToggleState()
+  
+  // Get current currency from the current region
+  const currentCurrency = useMemo(() => {
+    if (!regions || !countryCode) return undefined
+    
+    const currentRegion = regions.find((r) =>
+      r.countries?.some((c) => c.iso_2?.toLowerCase() === countryCode?.toLowerCase())
+    )
+    
+    return currentRegion?.currency_code
+  }, [regions, countryCode])
   
   // Handle country code prefix in pathname
   const getActivePath = (href: string) => {
@@ -115,6 +128,12 @@ export default function MobileMenu({ isOpen, onClose, regions }: MobileMenuProps
 
               {/* Footer */}
               <div className="p-6 border-t border-border space-y-4">
+                {regions && (
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">Currency</span>
+                    <CurrencySelect regions={regions} currentCurrency={currentCurrency} />
+                  </div>
+                )}
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Theme</span>
                   <ThemeToggle />

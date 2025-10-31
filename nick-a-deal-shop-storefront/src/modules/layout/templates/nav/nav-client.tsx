@@ -1,7 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { StoreRegion, HttpTypes } from "@medusajs/types"
+import { useParams } from "next/navigation"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Logo from "@modules/common/components/logo"
@@ -9,6 +10,7 @@ import CartDropdown from "@modules/layout/components/cart-dropdown"
 import DesktopNav from "@modules/layout/components/desktop-nav"
 import MobileMenu from "@modules/layout/components/mobile-menu"
 import ThemeToggle from "@modules/layout/components/theme-toggle"
+import CurrencySelect from "@modules/layout/components/currency-select"
 
 type NavClientProps = {
   regions: StoreRegion[] | null
@@ -17,6 +19,18 @@ type NavClientProps = {
 
 export default function NavClient({ regions, cart }: NavClientProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { countryCode } = useParams()
+
+  // Get current currency from the current region
+  const currentCurrency = useMemo(() => {
+    if (!regions || !countryCode) return undefined
+    
+    const currentRegion = regions.find((r) =>
+      r.countries?.some((c) => c.iso_2?.toLowerCase() === (countryCode as string)?.toLowerCase())
+    )
+    
+    return currentRegion?.currency_code
+  }, [regions, countryCode])
 
   return (
     <>
@@ -70,6 +84,11 @@ export default function NavClient({ regions, cart }: NavClientProps) {
                   />
                 </div>
               </div>
+
+              {/* Currency Switcher */}
+              {regions && (
+                <CurrencySelect regions={regions} currentCurrency={currentCurrency} />
+              )}
 
               {/* Theme Toggle */}
               <ThemeToggle />
