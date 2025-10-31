@@ -69,23 +69,32 @@ export default async function PaginatedProducts({
   return (
     <>
       <ul
-        className="grid grid-cols-2 w-full small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8"
+        className="grid grid-cols-2 w-full small:grid-cols-3 medium:grid-cols-4 gap-4 small:gap-6 medium:gap-8"
         data-testid="products-list"
       >
-        {products.map((p) => {
+        {products.map((p, index) => {
           return (
-            <li key={p.id}>
+            <li 
+              key={p.id}
+              className="fade-in slide-in-from-bottom-4"
+              style={{
+                animationDelay: `${index * 50}ms`,
+                animationFillMode: 'both',
+              }}
+            >
               <ProductPreview product={p} region={region} />
             </li>
           )
         })}
       </ul>
       {totalPages > 1 && (
-        <Pagination
-          data-testid="product-pagination"
-          page={page}
-          totalPages={totalPages}
-        />
+        <div className="mt-12 small:mt-16">
+          <Pagination
+            data-testid="product-pagination"
+            page={page}
+            totalPages={totalPages}
+          />
+        </div>
       )}
     </>
   )

@@ -20,13 +20,21 @@ const StoreTemplate = ({
 
   return (
     <div
-      className="flex flex-col small:flex-row small:items-start py-6 content-container"
+      className="flex flex-col small:flex-row small:items-start py-8 small:py-12 content-container"
       data-testid="category-container"
     >
       <RefinementList sortBy={sort} />
       <div className="w-full">
-        <div className="mb-8 text-2xl-semi">
-          <h1 data-testid="store-page-title">All products</h1>
+        <div className="mb-10 small:mb-12">
+          <h1 
+            className="text-3xl small:text-4xl font-bold text-foreground tracking-tight"
+            data-testid="store-page-title"
+          >
+            All products
+          </h1>
+          <p className="text-muted-foreground mt-2 text-sm small:text-base">
+            Curated deals, hand-picked by Nick
+          </p>
         </div>
         <Suspense fallback={<SkeletonProductGrid />}>
           <PaginatedProducts

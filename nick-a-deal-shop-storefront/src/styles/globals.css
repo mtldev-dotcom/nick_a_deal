@@ -11,19 +11,24 @@
   /* Brand Colors */
   --brand-50: #F7E8F3;
   --brand-100: #EFD1E9;
-  --brand-500: #B4228E; /* Primary Magenta */
-  --brand-700: #572383; /* Deep Purple */
+  --brand-500: #B4228E;
+  /* Primary Magenta */
+  --brand-700: #572383;
+  /* Deep Purple */
 
   /* Accent Colors */
   --accent-50: #E9F7FE;
   --accent-100: #D2EFFC;
-  --accent-500: #2BB8EB; /* Cyan */
-  --accent-700: #0B82CB; /* Royal Blue */
+  --accent-500: #2BB8EB;
+  /* Cyan */
+  --accent-700: #0B82CB;
+  /* Royal Blue */
 
   /* Neutrals */
   --cloud-100: #E6E7F4;
   --lavender-200: #B393C9;
-  --muted: #6B7280; /* Text secondary */
+  --muted: #6B7280;
+  /* Text secondary */
 
   /* UI Tokens */
   --card: #FFFFFF;
@@ -43,7 +48,16 @@
   /* Effects */
   --glow-magenta: 0 8px 24px rgba(180, 34, 142, 0.28);
   --glow-cyan: 0 8px 24px rgba(43, 184, 235, 0.28);
-  
+
+  /* Bright brand colors for shadows */
+  --bright-blue: #006AF9;
+  --bright-cyan: #00C0F9;
+  --bright-magenta: #DC00FE;
+  --bright-purple: #BC00FE;
+
+  /* Light blue for dark mode shadows */
+  --light-blue-shadow: #87CEEB;
+
   /* Animated border gradient colors */
   --border-gradient-start: var(--brand-500);
   --border-gradient-end: var(--accent-500);
@@ -59,9 +73,9 @@
   --background: #0A0A0B;
   --foreground: #F8FAFC;
 
-  --card: #101114;
+  --card: #4b4b4b;
   --card-foreground: #F8FAFC;
-  --border: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.12);
 
   /* Increase saturation a touch in dark */
   --primary: #C02A97;
@@ -71,6 +85,7 @@
 }
 
 @layer utilities {
+
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -81,16 +96,18 @@
   }
 
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 
-  input:focus ~ label,
-  input:not(:placeholder-shown) ~ label {
+  input:focus~label,
+  input:not(:placeholder-shown)~label {
     @apply -translate-y-2 text-xsmall-regular;
   }
 
-  input:focus ~ label {
+  input:focus~label {
     @apply left-0;
   }
 
@@ -118,10 +135,19 @@
 }
 
 @layer components {
+
   /* Hero background dark mode fix via attribute selector on <html data-theme="dark"> */
-  .hero-dark-overlay { display: none; }
-  [data-theme="dark"] .hero-bg { background-color: #050507 !important; }
-  [data-theme="dark"] .hero-dark-overlay { display: block; }
+  .hero-dark-overlay {
+    display: none;
+  }
+
+  [data-theme="dark"] .hero-bg {
+    background-color: #050507 !important;
+  }
+
+  [data-theme="dark"] .hero-dark-overlay {
+    display: block;
+  }
 
   .content-container {
     @apply max-w-[1440px] w-full mx-auto px-6;
@@ -194,25 +220,25 @@
   .btn-animated-border::before {
     content: '';
     position: absolute;
-    inset: 0; /* hug the button */
+    inset: 0;
+    /* hug the button */
     z-index: 0;
     border-radius: inherit;
-    padding: 3px; /* border thickness - increased for better visibility */
-    background: linear-gradient(
-      90deg,
-      var(--brand-500),
-      var(--brand-700),
-      var(--accent-500),
-      var(--accent-700),
-      var(--brand-500)
-    );
+    padding: 3px;
+    /* border thickness - increased for better visibility */
+    background: linear-gradient(90deg,
+        var(--brand-500),
+        var(--brand-700),
+        var(--accent-500),
+        var(--accent-700),
+        var(--brand-500));
     background-size: 300% 100%;
     animation: btn-border-move 2.5s linear infinite;
     /* Create an outer ring by punching out the middle */
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
-            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-            mask-composite: exclude;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
     pointer-events: none;
     will-change: background-position;
   }
@@ -230,26 +256,22 @@
 
   /* Primary variant - magenta to cyan */
   .btn-animated-border-primary::before {
-    background: linear-gradient(
-      90deg,
-      var(--brand-500),
-      var(--brand-700),
-      var(--accent-500),
-      var(--accent-700),
-      var(--brand-500)
-    );
+    background: linear-gradient(90deg,
+        var(--brand-500),
+        var(--brand-700),
+        var(--accent-500),
+        var(--accent-700),
+        var(--brand-500));
   }
 
   /* Secondary variant - cyan to magenta */
   .btn-animated-border-secondary::before {
-    background: linear-gradient(
-      90deg,
-      var(--accent-500),
-      var(--accent-700),
-      var(--brand-500),
-      var(--brand-700),
-      var(--accent-500)
-    );
+    background: linear-gradient(90deg,
+        var(--accent-500),
+        var(--accent-700),
+        var(--brand-500),
+        var(--brand-700),
+        var(--accent-500));
   }
 
   /* Disabled state - no animation */
@@ -273,6 +295,99 @@
 
 /* Keyframe animation for sliding border */
 @keyframes btn-border-move {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 300% 0%; }
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 300% 0%;
+  }
+}
+
+/* Product grid animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-bottom-4 {
+  from {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation-fill-mode: both;
+  }
+
+  .fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+
+  .slide-in-from-bottom-4 {
+    animation: slide-in-from-bottom-4 0.5s ease-out;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+
+    .animate-in,
+    .fade-in,
+    .slide-in-from-bottom-4 {
+      animation: none;
+    }
+  }
+
+  /* Product card base shadow and cursor-following effect */
+  .product-card {
+    transition: transform 0.3s ease-out;
+  }
+
+  /* Base shadow when wrapper is not hovered - Light mode */
+  .product-card-wrapper:not(:hover) .product-card-shadow .product-card {
+    box-shadow:
+      0 4px 12px rgba(0, 106, 249, 0.08),
+      0 2px 6px rgba(0, 192, 249, 0.06),
+      0 1px 3px rgba(220, 0, 254, 0.04);
+  }
+
+  /* Base shadow when wrapper is not hovered - Dark mode */
+  [data-theme="dark"] .product-card-wrapper:not(:hover) .product-card-shadow .product-card {
+    box-shadow:
+      0 4px 12px rgba(135, 206, 235, 0.25),
+      0 2px 6px rgba(135, 206, 235, 0.15),
+      0 1px 3px rgba(135, 206, 235, 0.1);
+  }
+
+  /* Cursor-following shadow effect on hover - Light mode */
+  .product-card-shadow .product-card {
+    box-shadow:
+      calc(var(--shadow-offset-x, 0px)) calc(var(--shadow-offset-y, 0px)) 24px rgba(0, 106, 249, 0.15),
+      calc(var(--shadow-offset-x, 0px) * 0.75) calc(var(--shadow-offset-y, 0px) * 0.75) 16px rgba(0, 192, 249, 0.12),
+      calc(var(--shadow-offset-x, 0px) * 0.5) calc(var(--shadow-offset-y, 0px) * 0.5) 12px rgba(220, 0, 254, 0.1),
+      calc(var(--shadow-offset-x, 0px) * 0.25) calc(var(--shadow-offset-y, 0px) * 0.25) 8px rgba(188, 0, 254, 0.08);
+    transition: box-shadow 0.15s ease-out;
+  }
+
+  /* Cursor-following shadow effect on hover - Dark mode with light blue */
+  [data-theme="dark"] .product-card-shadow .product-card {
+    box-shadow:
+      calc(var(--shadow-offset-x, 0px)) calc(var(--shadow-offset-y, 0px)) 24px rgba(135, 206, 235, 0.35),
+      calc(var(--shadow-offset-x, 0px) * 0.75) calc(var(--shadow-offset-y, 0px) * 0.75) 16px rgba(135, 206, 235, 0.25),
+      calc(var(--shadow-offset-x, 0px) * 0.5) calc(var(--shadow-offset-y, 0px) * 0.5) 12px rgba(135, 206, 235, 0.2),
+      calc(var(--shadow-offset-x, 0px) * 0.25) calc(var(--shadow-offset-y, 0px) * 0.25) 8px rgba(135, 206, 235, 0.15);
+    transition: box-shadow 0.15s ease-out;
+  }
 }

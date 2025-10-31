@@ -18,11 +18,19 @@ export default function DealBadge({
   return (
     <span
       className={cn(
-        "px-2 py-1 rounded-md text-xs font-semibold transition-colors",
-        // Light theme
-        "bg-[color:var(--cloud-100)] text-[color:var(--brand-700)]",
-        // Dark theme
-        "dark:bg-[#1A1B20] dark:text-[color:var(--accent-100)]",
+        // Enhanced styling with better visual appeal
+        "px-3 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase",
+        "shadow-lg backdrop-blur-sm",
+        "transition-all duration-300",
+        "group-hover:scale-110 group-hover:shadow-xl",
+        // Light theme - enhanced colors
+        "bg-gradient-to-r from-[color:var(--cloud-100)] to-[color:var(--brand-50)]",
+        "text-[color:var(--brand-700)]",
+        "border border-[color:var(--brand-500)]/20",
+        // Dark theme - enhanced colors
+        "dark:bg-gradient-to-r dark:from-[#1A1B20] dark:to-[#2A1B30]",
+        "dark:text-[color:var(--accent-100)]",
+        "dark:border-[color:var(--accent-500)]/30",
         className
       )}
     >
