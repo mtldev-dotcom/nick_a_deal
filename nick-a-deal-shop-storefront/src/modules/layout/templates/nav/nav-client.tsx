@@ -7,17 +7,18 @@ import { useParams } from "next/navigation"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Logo from "@modules/common/components/logo"
 import CartDropdown from "@modules/layout/components/cart-dropdown"
-import DesktopNav from "@modules/layout/components/desktop-nav"
-import MobileMenu from "@modules/layout/components/mobile-menu"
+import SidebarMenu from "@modules/layout/components/mobile-menu"
 import ThemeToggle from "@modules/layout/components/theme-toggle"
 import CurrencySelect from "@modules/layout/components/currency-select"
 
 type NavClientProps = {
   regions: StoreRegion[] | null
   cart: HttpTypes.StoreCart | null
+  categories: HttpTypes.StoreProductCategory[]
+  collections: HttpTypes.StoreCollection[]
 }
 
-export default function NavClient({ regions, cart }: NavClientProps) {
+export default function NavClient({ regions, cart, categories, collections }: NavClientProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { countryCode } = useParams()
 
@@ -37,12 +38,12 @@ export default function NavClient({ regions, cart }: NavClientProps) {
       <div className="sticky top-0 inset-x-0 z-50 group">
         <header className="relative h-16 mx-auto border-b duration-200 bg-background/95 backdrop-blur-md border-border shadow-sm">
           <nav className="content-container text-foreground flex items-center justify-between w-full h-full gap-4">
-            {/* Left: Logo / Mobile Menu Button */}
+            {/* Left: Logo / Menu Button */}
             <div className="flex items-center gap-x-4">
-              {/* Mobile Menu Button */}
+              {/* Hamburger Menu Button - Visible on all screens */}
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden p-2 rounded-lg hover:bg-background/50 transition-colors"
+                className="p-2 rounded-lg hover:bg-background/50 transition-colors"
                 aria-label="Open menu"
               >
                 {/* Hamburger Menu Icon */}
@@ -66,12 +67,7 @@ export default function NavClient({ regions, cart }: NavClientProps) {
               <Logo />
             </div>
 
-            {/* Center: Desktop Navigation */}
-            <div className="hidden lg:flex items-center justify-center flex-1">
-              <DesktopNav />
-            </div>
-
-            {/* Right: Search, Theme Toggle, Account, Cart */}
+            {/* Right: Search, Theme Toggle, Cart */}
             <div className="flex items-center gap-x-2 sm:gap-x-4 h-full">
               {/* Search Bar - Pill Style */}
               <div className="hidden md:flex items-center">
@@ -93,17 +89,6 @@ export default function NavClient({ regions, cart }: NavClientProps) {
               {/* Theme Toggle */}
               <ThemeToggle />
 
-              {/* Account Link (Desktop) */}
-              <div className="hidden lg:flex items-center">
-                <LocalizedClientLink
-                  className="px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
-                  href="/account"
-                  data-testid="nav-account-link"
-                >
-                  Account
-                </LocalizedClientLink>
-              </div>
-
               {/* Cart Button */}
               <CartDropdown cart={cart} />
             </div>
@@ -111,11 +96,13 @@ export default function NavClient({ regions, cart }: NavClientProps) {
         </header>
       </div>
 
-      {/* Mobile Menu */}
-      <MobileMenu
+      {/* Sidebar Menu */}
+      <SidebarMenu
         isOpen={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
         regions={regions}
+        categories={categories}
+        collections={collections}
       />
     </>
   )
