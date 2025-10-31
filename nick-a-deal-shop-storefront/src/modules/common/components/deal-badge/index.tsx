@@ -2,18 +2,25 @@ import { cn } from "@lib/util/cn"
 
 type DealBadgeProps = {
   variant?: "approved" | "today"
+  collectionName?: string | null
   className?: string
 }
 
 /**
- * DealBadge component for "Nick Approved" and "Today's Deal" badges
+ * DealBadge component for displaying collection names or "Today's Deal" badge
  * Supports light/dark theme per brand design guide
  */
 export default function DealBadge({
   variant = "approved",
+  collectionName,
   className,
 }: DealBadgeProps) {
-  const text = variant === "approved" ? "Nick Approved" : "Today's Deal"
+  // Use collection name if provided, otherwise fall back to variant text
+  const text = collectionName 
+    ? collectionName.toUpperCase()
+    : variant === "approved" 
+      ? "Nick Approved" 
+      : "Today's Deal"
 
   return (
     <span

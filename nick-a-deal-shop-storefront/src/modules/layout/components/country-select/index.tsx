@@ -8,7 +8,7 @@ import {
   Transition,
 } from "@headlessui/react"
 import { Fragment, useEffect, useMemo, useState } from "react"
-import ReactCountryFlag from "react-country-flag"
+import Image from "next/image"
 
 import { StateType } from "@lib/hooks/use-toggle-state"
 import { useParams, usePathname } from "next/navigation"
@@ -36,6 +36,15 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
   const currentPath = usePathname().split(`/${countryCode}`)[1]
 
   const { state, close } = toggleState
+
+  // Map ISO-2 to local PNG assets in /public
+  const getFlagIcon = (iso2?: string) => {
+    const code = (iso2 || "").toLowerCase()
+    if (code === "ca") return "/cad-icon.png"
+    if (code === "us") return "/usa-icon.png"
+    // Fallback to US if unknown; extend as needed
+    return "/usa-icon.png"
+  }
 
   const options = useMemo(() => {
     return regions
@@ -78,14 +87,12 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
             <span>Shipping to:</span>
             {current && (
               <span className="txt-compact-small flex items-center gap-x-2">
-                {/* @ts-ignore */}
-                <ReactCountryFlag
-                  svg
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                  }}
-                  countryCode={current.country ?? ""}
+                <Image
+                  src={getFlagIcon(current.country)}
+                  alt={`${current.label} flag`}
+                  width={16}
+                  height={16}
+                  className="rounded-sm"
                 />
                 {current.label}
               </span>
@@ -111,14 +118,12 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
                     value={o}
                     className="py-2 hover:bg-gray-200 px-3 cursor-pointer flex items-center gap-x-2"
                   >
-                    {/* @ts-ignore */}
-                    <ReactCountryFlag
-                      svg
-                      style={{
-                        width: "16px",
-                        height: "16px",
-                      }}
-                      countryCode={o?.country ?? ""}
+                    <Image
+                      src={getFlagIcon(o?.country)}
+                      alt={`${o?.label} flag`}
+                      width={16}
+                      height={16}
+                      className="rounded-sm"
                     />{" "}
                     {o?.label}
                   </ListboxOption>

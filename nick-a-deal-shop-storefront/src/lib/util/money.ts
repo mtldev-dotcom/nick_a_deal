@@ -14,14 +14,20 @@ export const convertToLocale = ({
   currency_code,
   minimumFractionDigits,
   maximumFractionDigits,
-  locale = "en-US",
+  locale,
   omitCurrencySymbol,
 }: ConvertToLocaleParams) => {
   if (!currency_code || isEmpty(currency_code)) {
     return amount.toString()
   }
 
-  const formatter = new Intl.NumberFormat(locale, {
+  // Choose a locale that shows the desired symbol for the currency.
+  // For example, CAD in en-US shows "CA$" while en-CA shows "$".
+  const normalizedCode = (currency_code || "").toUpperCase()
+  const effectiveLocale =
+    locale || (normalizedCode === "CAD" ? "en-CA" : "en-US")
+
+  const formatter = new Intl.NumberFormat(effectiveLocale, {
     style: "currency",
     currency: currency_code,
     minimumFractionDigits,

@@ -73,9 +73,9 @@
   --background: #0A0A0B;
   --foreground: #F8FAFC;
 
-  --card: #4b4b4b;
+  --card: #1b1b1b;
   --card-foreground: #F8FAFC;
-  --border: rgba(255, 255, 255, 0.12);
+  --border: rgba(167, 167, 167, 0.12);
 
   /* Increase saturation a touch in dark */
   --primary: #C02A97;
@@ -348,6 +348,34 @@
     .slide-in-from-bottom-4 {
       animation: none;
     }
+  }
+
+  /* Improve dropdown option contrast */
+  /* Note: Native option styling is limited by browser, but we can improve contrast */
+  select option {
+    background-color: var(--card) !important;
+    color: var(--foreground) !important;
+    padding: 8px 12px;
+  }
+
+  /* Highlight ONLY the selected option */
+  select option:checked,
+  select option[selected] {
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+    font-weight: 500;
+  }
+
+  /* Dark mode option styles */
+  [data-theme="dark"] select option {
+    background-color: var(--card) !important;
+    color: var(--foreground) !important;
+  }
+
+  [data-theme="dark"] select option:checked,
+  [data-theme="dark"] select option[selected] {
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
   }
 
   /* Product card base shadow and cursor-following effect */

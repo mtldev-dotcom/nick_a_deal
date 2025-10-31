@@ -20,6 +20,8 @@ export default async function PaginatedProducts({
   collectionId,
   categoryId,
   productsIds,
+  minPrice,
+  maxPrice,
   countryCode,
 }: {
   sortBy?: SortOptions
@@ -27,6 +29,8 @@ export default async function PaginatedProducts({
   collectionId?: string
   categoryId?: string
   productsIds?: string[]
+  minPrice?: number
+  maxPrice?: number
   countryCode: string
 }) {
   const queryParams: PaginatedProductsParams = {
@@ -61,6 +65,8 @@ export default async function PaginatedProducts({
     page,
     queryParams,
     sortBy,
+    minPrice,
+    maxPrice,
     countryCode,
   })
 

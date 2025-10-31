@@ -19,6 +19,10 @@ export default async function ProductPreview({
     product,
   })
 
+  // Get the collection name, or use null to fall back to default text
+  // In MedusaJS, products have a single collection relationship (not collections array)
+  const collectionName = product.collection?.title || null
+
   return (
     <LocalizedClientLink 
       href={`/products/${product.handle}`} 
@@ -30,8 +34,12 @@ export default async function ProductPreview({
           className="product-card relative h-full flex flex-col bg-card border border-border rounded-3xl overflow-hidden transition-all duration-300 ease-out hover:-translate-y-2"
         >
         {/* Enhanced Deal Badge - Top Left with better positioning */}
+        {/* Show collection name if available, otherwise show variant text */}
         <div className="absolute top-3 left-3 z-20">
-          <DealBadge variant={isFeatured ? "today" : "approved"} />
+          <DealBadge 
+            variant={isFeatured && !collectionName ? "today" : "approved"} 
+            collectionName={collectionName}
+          />
         </div>
 
         {/* Image Container with enhanced padding and hover effects */}

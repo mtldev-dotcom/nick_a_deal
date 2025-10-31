@@ -78,7 +78,7 @@ export const listProducts = async ({
           offset,
           region_id: region?.id,
           fields:
-            "*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags",
+            "*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags,*collection",
           ...queryParams,
         },
         headers,
@@ -108,11 +108,15 @@ export const listProductsWithSort = async ({
   page = 0,
   queryParams,
   sortBy = "created_at",
+  minPrice,
+  maxPrice,
   countryCode,
 }: {
   page?: number
   queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductParams
   sortBy?: SortOptions
+  minPrice?: number
+  maxPrice?: number
   countryCode: string
 }): Promise<{
   response: { products: HttpTypes.StoreProduct[]; count: number }
@@ -132,18 +136,34 @@ export const listProductsWithSort = async ({
     countryCode,
   })
 
-  const sortedProducts = sortProducts(products, sortBy)
+  // Optionally filter by price range before sorting/paginating
+  let filteredProducts = products
+  if (typeof minPrice === "number" || typeof maxPrice === "number") {
+    filteredProducts = products.filter((p: any) => {
+      const variantPrices = (p.variants || [])
+        .map((v: any) => v?.calculated_price?.calculated_amount)
+        .filter((n: any) => typeof n === "number")
+      if (!variantPrices.length) return false
+      const productMin = Math.min(...variantPrices)
+      if (typeof minPrice === "number" && productMin < minPrice) return false
+      if (typeof maxPrice === "number" && productMin > maxPrice) return false
+      return true
+    })
+  }
+
+  const sortedProducts = sortProducts(filteredProducts, sortBy)
 
   const pageParam = (page - 1) * limit
 
-  const nextPage = count > pageParam + limit ? pageParam + limit : null
+  const filteredCount = filteredProducts.length
+  const nextPage = filteredCount > pageParam + limit ? pageParam + limit : null
 
   const paginatedProducts = sortedProducts.slice(pageParam, pageParam + limit)
 
   return {
     response: {
       products: paginatedProducts,
-      count,
+      count: filteredCount,
     },
     nextPage,
     queryParams,
